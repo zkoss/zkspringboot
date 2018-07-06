@@ -1,0 +1,4 @@
+<zk>
+	Hello Demo!
+	<button label="test" onClick="alert(event.getName())"/>
+</zk>

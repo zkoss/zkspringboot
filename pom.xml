@@ -10,6 +10,7 @@
 
     <modules>
         <module>zk-springboot-starter</module>
+        <module>zk-springboot-demo</module>
     </modules>
     
     <dependencies>

@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.zkoss.zkforge.springboot.ZkAutoConfig,\
+org.zkoss.zkforge.springboot.ZkWebMvcConfig,\
+org.zkoss.zkforge.springboot.ZkMaxAutoConfig

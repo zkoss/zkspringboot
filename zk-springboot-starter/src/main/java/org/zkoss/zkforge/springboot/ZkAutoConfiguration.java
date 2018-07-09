@@ -1,15 +1,15 @@
 package org.zkoss.zkforge.springboot;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.zkoss.web.util.resource.ClassWebResource;
 import org.zkoss.zk.au.http.DHtmlUpdateServlet;
 import org.zkoss.zk.ui.http.HttpSessionListener;
 import org.zkoss.zk.ui.http.RichletFilter;
@@ -19,9 +19,15 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 
 @Configuration
-public class ZkAutoConfig  {
-	public static String UPDATE_URI = "/zkau"; //servlet mapping for ZK's update servlet
-	private static final String RICHLET_URI = "/richlet"; //optional
+@EnableConfigurationProperties({ZkProperties.class})
+public class ZkAutoConfiguration {
+	private static final Logger logger = LoggerFactory.getLogger(ZkAutoConfiguration.class);
+
+	private final ZkProperties zkProperties;
+
+	public ZkAutoConfiguration(ZkProperties zkProperties) {
+		this.zkProperties = zkProperties;
+	}
 
 /*
 	// original zk layout servlet (only for war files)
@@ -33,11 +39,13 @@ public class ZkAutoConfig  {
     }
 */
 
-	// optional richlet filter configuration (only needed for richlets)
 	@Bean
+	@ConditionalOnProperty(prefix = "zk", name = "richlet-filter-mapping")
 	public FilterRegistrationBean richletFilter() {
+		final String richletFilterMapping = zkProperties.getRichletFilterMapping();
 		FilterRegistrationBean reg = new FilterRegistrationBean(new RichletFilter());
-		reg.addUrlPatterns(RICHLET_URI + "/*");
+		reg.addUrlPatterns(richletFilterMapping);
+		logger.info("ZK-Springboot: FilterRegistrationBean for RichletFilter with url pattern " + richletFilterMapping);
 		return reg;
 	}
 
@@ -50,7 +58,9 @@ public class ZkAutoConfig  {
 	@Bean
 	@ConditionalOnMissingClass("org.zkoss.zats.mimic.Zats") //only allow custom update URI outside Zats testcases.
 	public ServletRegistrationBean customizableDHtmlUpdateServlet() {
-		return new ServletRegistrationBean(new DHtmlUpdateServlet(), UPDATE_URI + "/*");
+		final String updateUri = zkProperties.getUpdateUri();
+		logger.info("ZK-Springboot: ServletRegistrationBean for DHtmlUpdateServlet with path " + updateUri);
+		return new ServletRegistrationBean(new DHtmlUpdateServlet(), updateUri + "/*");
 	}
 
 	/**
@@ -66,7 +76,7 @@ public class ZkAutoConfig  {
 			public void contextInitialized(ServletContextEvent sce) {
 				final ServletContext ctx = sce.getServletContext();
 				if (WebManager.getWebManagerIfAny(ctx) == null) {
-					webManager = new WebManager(ctx, UPDATE_URI);
+					webManager = new WebManager(ctx, zkProperties.getUpdateUri());
 				} else {
 					throw new IllegalStateException("ZK WebManager already exists. Could not initialize via Spring Boot configuration.");
 				}

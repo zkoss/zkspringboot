@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IntegrationTestApplication {
 	@GetMapping("/test")
 	public String testPage() {
-		return "test";
+		return "zul/test";
 	}
 }

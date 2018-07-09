@@ -20,6 +20,7 @@ repositories {
 	maven { url "http://mavensync.zkoss.org/maven2" }
 	maven { url "http://mavensync.zkoss.org/eval" }
 	mavenCentral()
+	mavenLocal()
 }
 
 sourceCompatibility = '1.8'

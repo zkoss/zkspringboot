@@ -4,7 +4,7 @@
 	<groupId>org.zkoss.zkforge</groupId>
 	<artifactId>zk-springboot-demo</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0-SNAPSHOT</version>
+	<version>0.1.0-SNAPSHOT</version>
 	<name>zk-springboot-demo</name>
 	<url>http://www.zkoss.org</url>
 

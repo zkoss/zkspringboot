@@ -5,14 +5,11 @@
     <artifactId>zk-springboot-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>zk-springboot-parent</name>
+    <name>zk-springboot</name>
     <url>http://www.zkoss.org</url>
 
     <modules>
         <module>zk-springboot-starter</module>
         <module>zk-springboot-demo</module>
     </modules>
-    
-    <dependencies>
-    </dependencies>
 </project>

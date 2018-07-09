@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+	<config-name>zk-spring-boot</config-name>
+
+	<!--enable websocket support in ZK 8.5.1 (ZK-3799)  -->
+	<listener>
+		<listener-class>org.zkoss.zkmax.au.websocket.WebSocketWebAppInit</listener-class>
+	</listener>
+
+	<!--<client-config>-->
+		<!--<debug-js>true</debug-js>-->
+	<!--</client-config>-->
+
+	<!--<library-property>-->
+	<!--<name>org.zkoss.bind.DebuggerFactory.enable</name>-->
+	<!--<value>true</value>-->
+	<!--</library-property>-->
+
+	<!--https://www.zkoss.org/wiki/ZK_Configuration_Reference/zk.xml/The_Library_Properties/org.zkoss.zk.WPD.cache-->
+	<!--<library-property>
+		<name>org.zkoss.zk.WPD.cache</name>
+		<value>false</value>
+	</library-property>-->
+
+	<!-- https://www.zkoss.org/wiki/ZK_Configuration_Reference/zk.xml/The_Library_Properties/org.zkoss.zk.WCS.cache -->
+	<!--<library-property>
+		<name>org.zkoss.zk.WCS.cache</name>
+		<value>false</value>
+	</library-property>-->
+
+	<!-- https://www.zkoss.org/wiki/ZK_Configuration_Reference/zk.xml/The_Library_Properties/org.zkoss.zk.ZUML.cache since 8.5.1 -->
+	<!--<library-property>
+		<name>org.zkoss.zk.ZUML.cache</name>
+		<value>false</value>
+	</library-property>-->
+
+	<!--https://www.zkoss.org/wiki/ZK_Configuration_Reference/zk.xml/The_Library_Properties/org.zkoss.web.classWebResource.cache-->
+	<!--<library-property>
+		<name>org.zkoss.web.classWebResource.cache</name>
+		<value>false</value>
+	</library-property>-->
+</zk>

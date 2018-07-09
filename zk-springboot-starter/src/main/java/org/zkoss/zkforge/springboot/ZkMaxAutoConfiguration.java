@@ -1,5 +1,7 @@
 package org.zkoss.zkforge.springboot;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -16,6 +18,7 @@ import org.zkoss.zkmax.ui.comet.CometAsyncServlet;
 @EnableConfigurationProperties({ZkProperties.class})
 @ConditionalOnClass(org.zkoss.zkmax.Version.class)
 public class ZkMaxAutoConfiguration {
+	private static final Logger logger = LoggerFactory.getLogger(ZkMaxAutoConfiguration.class);
 
 	@Bean
 	public ServletContextInitializer manualServletConfigInit() {
@@ -30,8 +33,10 @@ public class ZkMaxAutoConfiguration {
 	@Bean
 	@ConditionalOnProperty(prefix = "zk", name = "servlet3-push-enabled", matchIfMissing = true)
 	public ServletRegistrationBean cometAsyncServlet() {
-		ServletRegistrationBean reg = new ServletRegistrationBean(new CometAsyncServlet(), "/zkcomet/*");
+		final String cometUri = "/zkcomet";
+		ServletRegistrationBean reg = new ServletRegistrationBean(new CometAsyncServlet(), cometUri + "/*");
 		reg.setAsyncSupported(true);
+		logger.info("ZK-Springboot: ServletRegistrationBean for CometAsyncServlet with path " + cometUri);
 		return reg;
 	}
 
@@ -40,7 +45,9 @@ public class ZkMaxAutoConfiguration {
 	@ConditionalOnProperty(prefix = "zk", name = "websockets-enabled", matchIfMissing = true)
 	public FilterRegistrationBean wsFilter() {
 		FilterRegistrationBean reg = new FilterRegistrationBean(new WebSocketFilter());
-		reg.addUrlPatterns(WebSocketWebAppInit.getWebSocketUrl() + "/*");
+		final String webSocketUrl = WebSocketWebAppInit.getWebSocketUrl();
+		reg.addUrlPatterns(webSocketUrl + "/*");
+		logger.info("ZK-Springboot: FilterRegistrationBean for WebSocketFilter with path " + webSocketUrl);
 		return reg;
 	}
 }

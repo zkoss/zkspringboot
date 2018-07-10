@@ -1,4 +1,4 @@
-package org.zkoss.zkforge.springboot.demo.test;
+package org.zkoss.zkspringboot.demo;
 
 import org.junit.ClassRule;
 import org.junit.Rule;

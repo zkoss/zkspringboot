@@ -9,11 +9,11 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>org.zkoss.zkforge.springboot.demo.DemoApplication</param-value>
+		<param-value>org.zkoss.zkspringboot.demo.DemoApplication</param-value>
 	</context-param>
 
 	<listener>
-		<listener-class>org.zkoss.zkforge.springboot.zats.ZatsSpringBootContextLoaderListener</listener-class>
+		<listener-class>org.zkoss.zkspringboot.zats.ZatsSpringBootContextLoaderListener</listener-class>
 	</listener>
 	<listener>
 		<listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>

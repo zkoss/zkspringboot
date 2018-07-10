@@ -1,4 +1,4 @@
-package org.zkoss.zkforge.springboot;
+package org.zkoss.zkspringboot;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.validation.annotation.Validated;

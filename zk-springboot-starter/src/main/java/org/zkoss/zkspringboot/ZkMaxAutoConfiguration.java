@@ -1,4 +1,4 @@
-package org.zkoss.zkforge.springboot;
+package org.zkoss.zkspringboot;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

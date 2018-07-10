@@ -1,4 +1,4 @@
-package org.zkoss.zkforge.springboot.zats;
+package org.zkoss.zkspringboot.zats;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

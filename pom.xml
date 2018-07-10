@@ -10,6 +10,6 @@
 
     <modules>
         <module>zkspringboot-starter</module>
-        <module>zkspringboot-demo</module>
+        <module>zkspringboot-demos</module>
     </modules>
 </project>

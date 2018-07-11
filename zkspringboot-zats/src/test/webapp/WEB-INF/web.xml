@@ -9,7 +9,7 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>org.zkoss.zkspringboot.integrationtest.IntegrationTestApplication</param-value>
+		<param-value>org.zkoss.zkspringboot.test.IntegrationTestApplication</param-value>
 	</context-param>
 
 	<listener>

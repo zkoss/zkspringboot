@@ -23,7 +23,13 @@ public class ZkWebMvcConfiguration implements WebMvcConfigurer {
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
 		if(zkProperties.isZulViewResolverEnabled()) {
-			final String prefix = zkProperties.getUpdateUri() + ClassWebResource.PATH_PREFIX + zkProperties.getZulViewResolverPrefix() + "/";
+			final String springbootPackaging = zkProperties.getSpringbootPackaging();
+			String prefix;
+			if(zkProperties.isWar()) {
+				prefix = zkProperties.getZulViewResolverPrefix() + "/";
+			} else {
+				prefix = zkProperties.getUpdateUri() + ClassWebResource.PATH_PREFIX + zkProperties.getZulViewResolverPrefix() + "/";
+			}
 			final String suffix = zkProperties.getZulViewResolverSuffix();
 			logger.info("ZK-Springboot: InternalViewResolver enabled. e.g. resolving view 'example' to '{}example{}'", prefix, suffix);
 			InternalResourceViewResolver resolver = new InternalResourceViewResolver(prefix, suffix);

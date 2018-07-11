@@ -3,9 +3,13 @@ package org.zkoss.zkspringboot;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.validation.annotation.Validated;
 
+import javax.validation.constraints.Pattern;
+
 @ConfigurationProperties(prefix = "zk")
 @Validated
 public class ZkProperties {
+	@Pattern(regexp="(jar)|(war)")
+	private String springbootPackaging = "jar";
 
 	private String updateUri = "/zkau";
 	private boolean websocketsEnabled = true; //ZK-EE only
@@ -16,6 +20,18 @@ public class ZkProperties {
 	private String zulViewResolverSuffix = ".zul";
 
 	private String richletFilterMapping;
+
+	public String getSpringbootPackaging() {
+		return springbootPackaging;
+	}
+
+	public void setSpringbootPackaging(String springbootPackaging) {
+		this.springbootPackaging = springbootPackaging;
+	}
+
+	public boolean isWar() {
+		return "war".equals(getSpringbootPackaging());
+	}
 
 	public String getUpdateUri() {
 		return updateUri;

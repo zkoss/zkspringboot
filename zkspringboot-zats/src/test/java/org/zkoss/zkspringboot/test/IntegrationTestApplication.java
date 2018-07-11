@@ -1,4 +1,4 @@
-package org.zkoss.zkspringboot.integrationtest;
+package org.zkoss.zkspringboot.test;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;

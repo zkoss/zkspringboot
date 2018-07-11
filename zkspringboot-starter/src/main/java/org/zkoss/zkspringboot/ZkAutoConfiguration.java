@@ -11,12 +11,15 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.zkoss.zk.au.http.DHtmlUpdateServlet;
+import org.zkoss.zk.ui.http.DHtmlLayoutServlet;
 import org.zkoss.zk.ui.http.HttpSessionListener;
 import org.zkoss.zk.ui.http.RichletFilter;
 import org.zkoss.zk.ui.http.WebManager;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
+import java.util.Arrays;
+import java.util.Collections;
 
 @Configuration
 @EnableConfigurationProperties({ZkProperties.class})
@@ -29,15 +32,17 @@ public class ZkAutoConfiguration {
 		this.zkProperties = zkProperties;
 	}
 
-/*
 	// original zk layout servlet (only for war files)
-    @Bean
-    public ServletRegistrationBean dHtmlLayoutServlet() {
-        ServletRegistrationBean reg = new ServletRegistrationBean(new DHtmlLayoutServlet(), "*.zul");
-        reg.setInitParameters(Collections.singletonMap("update-uri", UPDATE_URI));
-        return reg;
-    }
-*/
+	@Bean
+	@ConditionalOnProperty(prefix = "zk", name = "springboot-packaging", havingValue = "war", matchIfMissing = false)
+	public ServletRegistrationBean dHtmlLayoutServlet() {
+		final String[] mappings = {"*.zul", "*.zhtml"};
+		ServletRegistrationBean reg = new ServletRegistrationBean(new DHtmlLayoutServlet(), mappings);
+		reg.setInitParameters(Collections.singletonMap("update-uri", zkProperties.getUpdateUri()));
+		reg.setLoadOnStartup(0);
+		logger.info("ZK-Springboot: ServletRegistrationBean for DHtmlLayoutServlet with url pattern " + Arrays.asList(mappings));
+		return reg;
+	}
 
 	@Bean
 	@ConditionalOnProperty(prefix = "zk", name = "richlet-filter-mapping")
@@ -70,8 +75,12 @@ public class ZkAutoConfiguration {
 	@Bean
 	@ConditionalOnMissingClass("org.zkoss.zats.mimic.Zats") //Obsolete when using Zats
 	public HttpSessionListener httpSessionListener() {
+		if (zkProperties.isWar()) {
+			return new HttpSessionListener();
+		}
 		return new HttpSessionListener() {
 			private WebManager webManager;
+
 			@Override
 			public void contextInitialized(ServletContextEvent sce) {
 				final ServletContext ctx = sce.getServletContext();

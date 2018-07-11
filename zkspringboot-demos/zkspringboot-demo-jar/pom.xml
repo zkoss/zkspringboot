@@ -1,37 +1,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.zkoss</groupId>
+	<groupId>org.zkoss.zkspringboot</groupId>
 	<artifactId>zkspringboot-demo-jar</artifactId>
 	<packaging>jar</packaging>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.1-SNAPSHOT</version>
 	<name>zkspringboot-demo-jar</name>
 	<url>http://www.zkoss.org</url>
 
-	<repositories>
-		<repository>
-			<id>ZK CE</id>
-			<name>ZK CE Repository</name>
-			<url>http://mavensync.zkoss.org/maven2</url>
-		</repository>
-		<repository>
-			<id>ZK EVAL</id>
-			<name>ZK Evaluation Repository</name>
-			<url>http://mavensync.zkoss.org/eval</url>
-		</repository>
-	</repositories>
-
-	<properties>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<zk.version>8.5.1.2-Eval</zk.version>
-		<zats.version>2.0.0</zats.version>
-		<junit.version>4.12</junit.version>
-	</properties>
+	<parent>
+		<groupId>org.zkoss.zkspringboot</groupId>
+		<artifactId>zkspringboot-demos</artifactId>
+		<version>0.1-SNAPSHOT</version>
+	</parent>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.zkoss</groupId>
+			<groupId>org.zkoss.zkspringboot</groupId>
 			<artifactId>zkspringboot-starter</artifactId>
 			<version>1.0-SNAPSHOT</version>
 			<!--<exclusions>-->
@@ -62,6 +47,12 @@
 
 		<!-- enable zats testing - optional -->
 		<dependency>
+			<groupId>org.zkoss.zkspringboot</groupId>
+			<artifactId>zkspringboot-zats</artifactId>
+			<version>${zkspringboot.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.zkoss.zats</groupId>
 			<artifactId>zats-mimic-ext7</artifactId>
 			<version>${zats.version}</version>
@@ -74,20 +65,4 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<goals>
-							<goal>repackage</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
 </project>

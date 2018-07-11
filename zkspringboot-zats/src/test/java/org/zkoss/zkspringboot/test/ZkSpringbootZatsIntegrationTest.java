@@ -1,4 +1,4 @@
-package org.zkoss.zkspringboot.integrationtest;
+package org.zkoss.zkspringboot.test;
 
 import org.junit.ClassRule;
 import org.junit.Rule;
@@ -12,7 +12,7 @@ import org.zkoss.zul.Label;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class ZkSpringbootIntegrationTest {
+public class ZkSpringbootZatsIntegrationTest {
 
 	@ClassRule
 	public static AutoEnvironment env = new AutoEnvironment("src/test/webapp/WEB-INF", "src/test/webapp");

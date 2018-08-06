@@ -3,7 +3,7 @@ buildscript {
 		mavenCentral()
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.3.RELEASE")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.4.RELEASE")
 	}
 }
 
@@ -27,7 +27,7 @@ sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
 ext {
-	zkVersion = '8.5.1.2-Eval'
+	zkVersion = '8.5.2-Eval'
 	zatsVersion = '2.0.0'
 	junitVersion = '4.12'
 }

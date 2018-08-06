@@ -30,7 +30,7 @@ property | default | example(s) | description
 `zk.servlet3-push-enabled=true`| `true`  | `true`/`false`    | enable/disable servlet3 CometServerPush (available in ZK-EE)
 `zk.update-uri`                | `/zkau` | `/mypath`         | configure servlet path for ZK's update engine (rarely used)
 
-##zk.zul-view-resolver-*
+## zk.zul-view-resolver-*
 Defines a simple InternalViewResolver resolving view names to zul files inside the class-web package (not required but still possible for `war` packaging)
 
 The defaults above have the following effect, given the get mapping:
@@ -44,6 +44,6 @@ Resolves to `/zkau/web/views/demo.zul`
 ZK's UpdateServlet will locate the file on the classpath e.g. in `src/main/resources/web/views/demo.zul`
 A configured prefix e.g. `/myprefix` will be inserted before the view name: `/zkau/web[/myprefix]/views/demo.zul`
 
-##zk.richlet-filter-mapping
+## zk.richlet-filter-mapping
 Enables ZK's RichletFilter LINK ME the value has to be a servlet filter mapping such as: `/richlet/*`
 Requires additional richlet mappings in zk.xml LINK ME

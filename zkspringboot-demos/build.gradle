@@ -13,14 +13,13 @@ apply plugin: 'io.spring.dependency-management'
 
 jar {
 	baseName = rootProject.name
-	version =  '0.1.0'
+	version =  '0.0.1'
 }
 
 repositories {
 	maven { url "http://mavensync.zkoss.org/maven2" }
 	maven { url "http://mavensync.zkoss.org/eval" }
 	mavenCentral()
-	mavenLocal()
 }
 
 sourceCompatibility = '1.8'
@@ -41,7 +40,7 @@ dependencies {
 //	compile "org.springframework.boot:spring-boot-starter-jetty"
 //	compile "org.springframework.boot:spring-boot-starter-undertow"
 
-	compile "org.zkoss:zkspringboot-starter:1.0-SNAPSHOT"
+	compile "org.zkoss:zkspringboot-starter:1.0.0-SNAPSHOT"
 
 	def withoutSlf4J = { exclude group: "org.slf4j", module: "slf4j-jdk14" }
 //	compile "org.zkoss.zk:zkex:${zkVersion}", withoutSlf4J    /*ZK PE*/

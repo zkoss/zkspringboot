@@ -5,7 +5,7 @@
 	<artifactId>zkspringboot-demos</artifactId>
 
 	<packaging>pom</packaging>
-	<version>0.1-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>zkspringboot-demos</name>
 	<url>http://www.zkoss.org</url>
 
@@ -26,7 +26,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<zkspringboot.version>1.0-SNAPSHOT</zkspringboot.version>
+		<zkspringboot.version>1.0.0-SNAPSHOT</zkspringboot.version>
 		<springboot.version>2.0.4.RELEASE</springboot.version>
 		<zk.version>8.5.2-Eval</zk.version>
 		<zats.version>2.0.0</zats.version>

@@ -4,7 +4,7 @@
 	<groupId>org.zkoss.zkspringboot</groupId>
 	<artifactId>zkspringboot-zats</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>zkspringboot-zats</name>
 	<url>http://www.zkoss.org</url>
 
@@ -26,16 +26,16 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.zkoss.zats</groupId>
-			<artifactId>zats-mimic-ext7</artifactId>
-			<version>${zats.version}</version>
-		</dependency>
-
-		<dependency>
 			<groupId>org.zkoss.zkspringboot</groupId>
 			<artifactId>zkspringboot-starter</artifactId>
 			<version>${project.version}</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.zkoss.zats</groupId>
+			<artifactId>zats-mimic-ext7</artifactId>
+			<version>${zats.version}</version>
 		</dependency>
 
 		<dependency>

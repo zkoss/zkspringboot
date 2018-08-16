@@ -4,14 +4,14 @@
 	<groupId>org.zkoss</groupId>
 	<artifactId>zkspringboot-minimal-war</artifactId>
 	<packaging>war</packaging>
-	<version>0.1-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>zkspringboot-minimal-war</name>
 	<url>http://www.zkoss.org</url>
 
 	<parent>
 		<groupId>org.zkoss.zkspringboot</groupId>
 		<artifactId>zkspringboot-demos</artifactId>
-		<version>0.1-SNAPSHOT</version>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
 	<dependencies>

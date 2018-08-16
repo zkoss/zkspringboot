@@ -22,6 +22,7 @@ zk.update-uri=/zkau
 property | default | example(s) | description
 -------- | ------- | ------- | -----------
 `zk.springboot-packaging`      | `jar`   | `war`/`jar`       | package as jar or war file
+`zk.homepage`                  | empty   | `home`/`main`     | when set will setup a @GetMapping for "/" to return the configured view-name
 `zk.zul-view-resolver-enabled` | `true`  | `true`/`false`    | enable/disable InternalViewResolver for zul files
 `zk.zul-view-resolver-prefix`  | empty   | `/zul`            | prefix prepended to a view name (i.e. a folder inside the web resource package on the classpath)
 `zk.zul-view-resolver-suffix`  | `.zul`  | `.zul`/`.zhtml`   | usually `.zul` does what you need

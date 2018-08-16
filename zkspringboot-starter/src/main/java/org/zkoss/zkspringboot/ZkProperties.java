@@ -15,6 +15,7 @@ public class ZkProperties {
 	private boolean websocketsEnabled = true; //ZK-EE only
 	private boolean servlet3PushEnabled = true; //ZK-EE only
 
+	private String homepage = null;
 	private boolean zulViewResolverEnabled = true;
 	private String zulViewResolverPrefix = "";
 	private String zulViewResolverSuffix = ".zul";
@@ -55,6 +56,14 @@ public class ZkProperties {
 
 	public void setServlet3PushEnabled(boolean servlet3PushEnabled) {
 		this.servlet3PushEnabled = servlet3PushEnabled;
+	}
+
+	public String getHomepage() {
+		return homepage;
+	}
+
+	public void setHomepage(String homepage) {
+		this.homepage = homepage;
 	}
 
 	public boolean isZulViewResolverEnabled() {

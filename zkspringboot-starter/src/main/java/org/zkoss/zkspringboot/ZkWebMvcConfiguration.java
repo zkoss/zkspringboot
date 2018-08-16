@@ -31,7 +31,7 @@ public class ZkWebMvcConfiguration implements WebMvcConfigurer {
 				prefix = zkProperties.getUpdateUri() + ClassWebResource.PATH_PREFIX + zkProperties.getZulViewResolverPrefix() + "/";
 			}
 			final String suffix = zkProperties.getZulViewResolverSuffix();
-			logger.info("ZK-Springboot: InternalViewResolver enabled. e.g. resolving view 'example' to '{}example{}'", prefix, suffix);
+			logger.info("ZK-Springboot: InternalViewResolver enabled - e.g. resolving view 'example' to '{}example{}'", prefix, suffix);
 			InternalResourceViewResolver resolver = new InternalResourceViewResolver(prefix, suffix);
 			resolver.setOrder(InternalResourceViewResolver.LOWEST_PRECEDENCE);
 			registry.viewResolver(resolver);

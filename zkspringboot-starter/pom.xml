@@ -6,7 +6,24 @@
 	<packaging>jar</packaging>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>zkspringboot-starter</name>
+	<description>zkspringboot-starter</description>
 	<url>http://www.zkoss.org</url>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<scm>
+		<url>http://gitlab.potix.com/robertwenzel/zk-springboot-starter</url>
+		<connection>scm:git:git@gitlab.potix.com:robertwenzel/zk-springboot-starter.git</connection>
+	</scm>
+	<organization>
+		<name>Potix Corporation</name>
+		<url>http://www.zkoss.org</url>
+	</organization>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

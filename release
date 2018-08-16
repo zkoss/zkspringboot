@@ -1,0 +1,21 @@
+#!/bin/bash
+
+maindir="$(pwd)"
+ver=$(head -1 version)
+stamp=$(date +%Y%m%d%H)
+target=$1
+if [ "$target" == "official" ] ; then
+	pver=$ver
+else
+	pver=$ver-FL-$stamp
+fi
+
+echo $pver
+
+bash ./upVer $ver-SNAPSHOT $pver
+
+mvn clean install -pl zkspringboot-zats -am
+mvn source:jar javadoc:jar repository:bundle-create --batch-mode -DskipTests -pl zkspringboot-zats -am
+
+cd $maindir
+bash ./prepare-upload.sh $pver

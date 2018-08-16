@@ -1,0 +1,43 @@
+#!/bin/bash
+# release
+#
+#{{IS_NOTE
+#	Purpose:
+#		
+#	Description:
+#		
+#	History:
+#		Tue Mar 3 11:11:09     2011, Created by Jimmy
+#}}IS_NOTE
+#
+#Copyright (C) 2011 Potix Corporation. All Rights Reserved.
+#
+#{{IS_RIGHT
+#}}IS_RIGHT
+#
+maindir="$(pwd)"
+echo "Working directory $maindir"
+oldVersion=$1
+newVersion=$2
+isFL=$3
+
+if [ "$oldVersion" == "" ] || [ "$newVersion" == "" ] ; then
+	echo "Usage: upVer [ oldVersion ] [ newVersion ] [options]"
+	echo "Available options: FL."
+	exit 1
+fi
+
+function upVer {
+	if [ "$isFL" == "FL" ] ; then
+        targetVersion=$newVersion"-SNAPSHOT"
+    else 
+        targetVersion=$newVersion
+    fi
+    sed -i "/version>/,/<\//s/>$oldVersion.*<\//>$targetVersion<\//" $1/pom.xml
+    echo "$1 pom.xml"
+    grep -n --color=auto $targetVersion $1/pom.xml
+
+}
+
+upVer zkspringboot-starter
+upVer zkspringboot-zats

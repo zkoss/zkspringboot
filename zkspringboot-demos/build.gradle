@@ -40,7 +40,7 @@ dependencies {
 //	compile "org.springframework.boot:spring-boot-starter-jetty"
 //	compile "org.springframework.boot:spring-boot-starter-undertow"
 
-	compile "org.zkoss:zkspringboot-starter:1.0.0-SNAPSHOT"
+	compile "org.zkoss:zkspringboot-starter:1.0.1-SNAPSHOT"
 
 	def withoutSlf4J = { exclude group: "org.slf4j", module: "slf4j-jdk14" }
 //	compile "org.zkoss.zk:zkex:${zkVersion}", withoutSlf4J    /*ZK PE*/

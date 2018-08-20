@@ -1,13 +1,14 @@
-# ZK Spring-Boot
+# ZK - Spring Boot
 
 
-## Configuration options (for Spring-Boot style application.properties)
+## Configuration options (for Spring Boot style application.properties)
 
 
-Defaults as in ZkProperties.java LINK ME
+Defaults as in [ZkProperties.java](zkspringboot-starter/src/main/java/org/zkoss/zkspringboot/ZkProperties.java)
 ```
 zk.springboot-packaging=jar
 
+zk.homepage=
 zk.zul-view-resolver-enabled=true
 zk.zul-view-resolver-prefix=
 zk.zul-view-resolver-suffix=.zul

@@ -33,6 +33,10 @@ property | default | example(s) | description
 `zk.update-uri`                | `/zkau` | `/mypath`         | configure servlet path for ZK's update engine (rarely used)
 
 ## zk.zul-view-resolver-*
+Shortcut configuration to enables a Spring MVC Controller with a @GetMapping for the path '/' returning the configured view name. (disabled by default).
+The default zul-view-resolver config will prepend the the servlet mapping for ZK's update engine (default `/zkau`) and append the `.zul`-extension to locate the zul file in your application.
+
+## zk.zul-view-resolver-*
 Defines a simple InternalViewResolver resolving view names to zul files inside the class-web package (not required but still possible for `war` packaging)
 
 The defaults above have the following effect, given the get mapping:
@@ -48,4 +52,4 @@ A configured prefix e.g. `/myprefix` will be inserted before the view name: `/zk
 
 ## zk.richlet-filter-mapping
 Enables ZK's RichletFilter LINK ME the value has to be a servlet filter mapping such as: `/richlet/*`
-Requires additional richlet mappings in zk.xml LINK ME
+Requires additional [richlet-mappings configured in zk.xml](https://www.zkoss.org/wiki/ZK_Configuration_Reference/zk.xml/The_richlet-mapping_Element).

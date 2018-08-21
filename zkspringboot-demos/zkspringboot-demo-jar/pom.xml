@@ -63,6 +63,18 @@
 			</exclusions>
 		</dependency>
 
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zuti</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkplus</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+
 		<!-- enable zats testing - optional -->
 		<dependency>
 			<groupId>org.zkoss.zkspringboot</groupId>

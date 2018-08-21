@@ -11,9 +11,15 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class);
 	}
-	
-	@GetMapping("/demo")
-	public String demo() {
-		return "demo";
+
+	@GetMapping("/mvvm")
+	public String mvvmExample() {
+		return "mvvm";
 	}
+
+	@GetMapping("/resources")
+	public String resourcesExample() {
+		return "resources";
+	}
+
 }

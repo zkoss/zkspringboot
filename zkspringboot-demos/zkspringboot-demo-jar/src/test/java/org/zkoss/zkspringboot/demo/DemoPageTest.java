@@ -12,7 +12,7 @@ import org.zkoss.zul.Label;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class DemoApplicationTest {
+public class DemoPageTest {
 
 	@ClassRule
 	public static AutoEnvironment env = new AutoEnvironment("src/test/webapp/WEB-INF", "src/test/webapp");
@@ -24,7 +24,7 @@ public class DemoApplicationTest {
 
 	@Test
 	public void testDemoPage() {
-		desktopAgent = client.connect("/demo");
+		desktopAgent = client.connect("/");
 		assertNotNull(demoButton());
 		assertNotNull(demoLabel());
 		assertEquals("", demoLabel().as(Label.class).getValue());

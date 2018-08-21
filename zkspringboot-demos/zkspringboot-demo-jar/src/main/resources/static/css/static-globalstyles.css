@@ -1,0 +1,6 @@
+.my-box2 {
+    border: 3px solid green;
+    padding: 15px;
+    display: block;
+    width: max-content;
+}

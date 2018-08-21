@@ -1,0 +1,10 @@
+<language-addon>
+	<addon-name>zkspringboot-demo-addon</addon-name>
+	<version>1.0</version>
+	<language-name>xul/html</language-name>
+
+	<depends>zkmax</depends>
+
+	<stylesheet href="/css/static-globalstyles.css" type="text/css"/>
+	<stylesheet href="~./css/web-globalstyles.css" type="text/css"/>
+</language-addon>

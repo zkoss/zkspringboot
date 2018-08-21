@@ -8,11 +8,11 @@
 	</listener>
 
 	<richlet>
-		<richlet-name>TestRichlet</richlet-name><!-- your preferred name -->
-		<richlet-class>org.zkoss.zkspringboot.demo.richlet.TestRichlet</richlet-class><!-- your class name, of course -->
+		<richlet-name>ExampleRichlet</richlet-name><!-- your preferred name -->
+		<richlet-class>org.zkoss.zkspringboot.demo.richlet.ExampleRichlet</richlet-class><!-- your class name, of course -->
 	</richlet>
 	<richlet-mapping>
-		<richlet-name>TestRichlet</richlet-name>
-		<url-pattern>/richlet/test</url-pattern>
+		<richlet-name>ExampleRichlet</richlet-name>
+		<url-pattern>/richlet/example</url-pattern>
 	</richlet-mapping>
 </zk>

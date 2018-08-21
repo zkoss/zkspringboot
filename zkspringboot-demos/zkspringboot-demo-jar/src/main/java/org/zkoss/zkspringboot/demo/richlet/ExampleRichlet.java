@@ -11,7 +11,7 @@ import org.zkoss.zul.Label;
 import org.zkoss.zul.Separator;
 import org.zkoss.zul.Window;
 
-public class TestRichlet extends GenericRichlet {
+public class ExampleRichlet extends GenericRichlet {
 
 	@Autowired
 	private TestService testService;

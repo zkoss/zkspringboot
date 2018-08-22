@@ -4,7 +4,7 @@
 * zkspringboot-minimal-war - A Minimal war example
 * zkspringboot-demo-jar - An example jar showing multiple features including ZATS testing
 
-## Maven
+## Maven (using maven-wrapper)
 
 build all demos
 
@@ -21,7 +21,7 @@ run each demo from its individual folder
     cd zkspringboot-demo-jar
     ./mvnw spring-boot:run
     
-## Gradle
+## Gradle (using gradle-wrapper)
 
 build all demos
     

@@ -40,8 +40,8 @@ property | default | example(s) | description
 `zk.servlet3-push-enabled=true`| `true`  | `true`/`false`    | enable/disable servlet3 CometServerPush (available in ZK-EE)
 `zk.update-uri`                | `/zkau` | `/mypath`         | configure servlet path for ZK's update engine (rarely used)
 
-### zk.zul-view-resolver-*
-Shortcut configuration to enables a Spring MVC Controller with a @GetMapping for the path '/' returning the configured view name. (disabled by default).
+### zk.homepage
+Shortcut configuration to enables a Spring MVC Controller with a @GetMapping for the root path '/' returning the configured view name. (disabled by default).
 The default zul-view-resolver config will prepend the the servlet mapping for ZK's update engine (default `/zkau`) and append the `.zul`-extension to locate the zul file in your application.
 
 ### zk.zul-view-resolver-*

@@ -8,6 +8,7 @@
 * Add a single dependency (as in [zkspringboot-minimal-jar/pom.xml](zkspringboot-demos/zkspringboot-minimal-jar/pom.xml##L28-L32))
 * Place your zul files below [src/main/resources/web](zkspringboot-demos/zkspringboot-minimal-jar/src/main/resources/web/zul)
 * Create a spring controller or define a `zk.homepage` parameter in [application.properties](zkspringboot-demos/zkspringboot-minimal-jar/src/main/resources/application.properties)
+* or just have a look into the [demos](zkspringboot-demos)
 
 ## Configuration options (for Spring Boot style application.properties)
 

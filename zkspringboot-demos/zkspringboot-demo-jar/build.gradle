@@ -1,0 +1,41 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.4.RELEASE")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+	maven { url "http://mavensync.zkoss.org/maven2" }
+	maven { url "http://mavensync.zkoss.org/eval" }
+	mavenCentral()
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+ext {
+	zkspringbootVersion = '1.0.0'
+	zkVersion = '8.5.2-Eval'
+	zatsVersion = '2.0.0'
+	junitVersion = '4.12'
+
+}
+
+dependencies {
+	compile "org.zkoss.zkspringboot:zkspringboot-starter:${zkspringbootVersion}"
+
+	def withoutSlf4J = { exclude group: "org.slf4j", module: "slf4j-jdk14" }
+	compile "org.zkoss.zk:zkmax:${zkVersion}", withoutSlf4J
+	compile "org.zkoss.zk:zuti:${zkVersion}", withoutSlf4J
+	compile "org.zkoss.zk:zkplus:${zkVersion}", withoutSlf4J
+
+	testCompile "org.zkoss.zkspringboot:zkspringboot-zats:${zkspringbootVersion}"
+	testCompile "junit:junit:${junitVersion}"
+}

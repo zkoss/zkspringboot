@@ -41,12 +41,14 @@ run each demo from its individual folder
 
 After successfull startup the applications can be accessed under the following urls
 
-for all demos: 
+(for all demos)
 
 http://localhost:8080 - a simple hello page
 
-zkspringboot-demo-jar:
+(for zkspringboot-demo-jar)
 
 http://localhost:8080/mvvm - featuring basic mvvm based navigation
+
 http://localhost:8080/resources - demonstrating how to access resources
+
 http://localhost:8080/richlet/example - basic example richlet

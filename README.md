@@ -41,7 +41,7 @@ property | default | example(s) | description
 `zk.update-uri`                | `/zkau` | `/mypath`         | configure servlet path for ZK's update engine (rarely used)
 
 ### zk.homepage
-Shortcut configuration to enables a Spring MVC Controller with a @GetMapping for the root path '/' returning the configured view name. (disabled by default).
+Shortcut configuration to enable a Spring MVC Controller with a @GetMapping for the root path '/' returning the configured view name. (disabled by default).
 The default zul-view-resolver config will prepend the the servlet mapping for ZK's update engine (default `/zkau`) and append the `.zul`-extension to locate the zul file in your application.
 
 ### zk.zul-view-resolver-*

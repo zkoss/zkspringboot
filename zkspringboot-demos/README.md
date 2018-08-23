@@ -19,7 +19,7 @@ run individual demo
 run each demo from its individual folder
 
     cd zkspringboot-demo-jar
-    ./mvnw spring-boot:run
+    ../mvnw spring-boot:run
     
 ## Gradle (using gradle-wrapper)
 
@@ -35,7 +35,8 @@ run individual demo
 
 run each demo from its individual folder
 
-    ./gradlew bootRun
+    cd zkspringboot-demo-jar
+    ../gradlew bootRun
     
 ## Test urls
 

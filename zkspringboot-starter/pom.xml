@@ -17,8 +17,8 @@
 		</license>
 	</licenses>
 	<scm>
-		<url>http://gitlab.potix.com/robertwenzel/zk-springboot-starter</url>
-		<connection>scm:git:git@gitlab.potix.com:robertwenzel/zk-springboot-starter.git</connection>
+		<url>https://github.com/zkoss/zkspringboot</url>
+		<connection>scm:git:git@github.com:zkoss/zkspringboot.git</connection>
 	</scm>
 	<organization>
 		<name>Potix Corporation</name>

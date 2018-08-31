@@ -13,6 +13,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 repositories {
+	mavenLocal()
 	maven { url "http://mavensync.zkoss.org/maven2" }
 	maven { url "http://mavensync.zkoss.org/eval" }
 	mavenCentral()
@@ -22,7 +23,7 @@ sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
 ext {
-	zkspringbootVersion = '1.0.0'
+	zkspringbootVersion = '1.0.1-SNAPSHOT'
 }
 
 dependencies {

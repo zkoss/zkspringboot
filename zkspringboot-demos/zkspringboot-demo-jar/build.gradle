@@ -12,6 +12,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 repositories {
+	mavenLocal()
 	maven { url "http://mavensync.zkoss.org/maven2" }
 	maven { url "http://mavensync.zkoss.org/eval" }
 	mavenCentral()
@@ -21,11 +22,10 @@ sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
 ext {
-	zkspringbootVersion = '1.0.0'
-	zkVersion = '8.5.2-Eval'
+	zkspringbootVersion = '1.0.1-SNAPSHOT'
+	zkVersion = '8.5.2.1-Eval'
 	zatsVersion = '2.0.0'
 	junitVersion = '4.12'
-
 }
 
 dependencies {
@@ -41,6 +41,6 @@ dependencies {
 	compile "org.zkoss.zk:zuti:${zkVersion}", withoutSlf4J
 	compile "org.zkoss.zk:zkplus:${zkVersion}", withoutSlf4J
 
-	testCompile "org.zkoss.zkspringboot:zkspringboot-zats:${zkspringbootVersion}"
+	testCompile "org.zkoss.zats:zats-mimic-ext7:${zatsVersion}"
 	testCompile "junit:junit:${junitVersion}"
 }

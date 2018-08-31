@@ -39,5 +39,6 @@ function upVer {
 
 }
 
+upVer zkspringboot-autoconfig
 upVer zkspringboot-starter
 upVer zkspringboot-zats

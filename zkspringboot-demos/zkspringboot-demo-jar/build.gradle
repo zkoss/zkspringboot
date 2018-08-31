@@ -29,7 +29,12 @@ ext {
 }
 
 dependencies {
-	compile "org.zkoss.zkspringboot:zkspringboot-starter:${zkspringbootVersion}"
+	compile ("org.zkoss.zkspringboot:zkspringboot-starter:${zkspringbootVersion}") {
+//		exclude module: "spring-boot-starter-tomcat"
+	}
+//	choose alternative servlet engine jetty/undertow (exclude tomcat above)
+//	compile "org.springframework.boot:spring-boot-starter-jetty"
+//	compile "org.springframework.boot:spring-boot-starter-undertow"
 
 	def withoutSlf4J = { exclude group: "org.slf4j", module: "slf4j-jdk14" }
 	compile "org.zkoss.zk:zkmax:${zkVersion}", withoutSlf4J

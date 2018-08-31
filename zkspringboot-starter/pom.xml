@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss.zkspringboot</groupId>
 	<artifactId>zkspringboot-starter</artifactId>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 	<version>1.0.1-SNAPSHOT</version>
 	<name>zkspringboot-starter</name>
 	<description>zkspringboot-starter</description>

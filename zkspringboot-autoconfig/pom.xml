@@ -2,11 +2,11 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss.zkspringboot</groupId>
-	<artifactId>zkspringboot-starter</artifactId>
-	<packaging>pom</packaging>
+	<artifactId>zkspringboot-autoconfig</artifactId>
+	<packaging>jar</packaging>
 	<version>1.0.1-SNAPSHOT</version>
-	<name>zkspringboot-starter</name>
-	<description>zkspringboot-starter</description>
+	<name>zkspringboot-autoconfig</name>
+	<description>zkspringboot-autoconfig</description>
 	<url>http://www.zkoss.org</url>
 
 	<licenses>
@@ -25,13 +25,6 @@
 		<url>http://www.zkoss.org</url>
 	</organization>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.4.RELEASE</version>
-		<relativePath/>
-	</parent>
-
 	<repositories>
 		<repository>
 			<id>ZK CE</id>
@@ -47,7 +40,10 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.8</java.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<springboot.version>2.0.4.RELEASE</springboot.version>
 		<zk.version>8.5.2.1-Eval</zk.version>
 	</properties>
 
@@ -55,29 +51,29 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${springboot.version}</version>
+            <scope>provided</scope>
 		</dependency>
 
 		<dependency>
-			<groupId>org.zkoss.zkspringboot</groupId>
-			<artifactId>zkspringboot-autoconfig</artifactId>
-			<version>${project.version}</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<version>${springboot.version}</version>
+			<optional>true</optional>
 		</dependency>
 
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
-			<artifactId>zkbind</artifactId>
+			<artifactId>zk</artifactId>
 			<version>${zk.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-jdk14</artifactId>
-				</exclusion>
-			</exclusions>
+            <scope>provided</scope>
 		</dependency>
 
 		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkmax</artifactId>
+			<version>${zk.version}</version>
+            <scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>

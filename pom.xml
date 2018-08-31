@@ -9,6 +9,7 @@
     <url>http://www.zkoss.org</url>
 
     <modules>
+        <module>zkspringboot-autoconfig</module>
         <module>zkspringboot-starter</module>
         <module>zkspringboot-zats</module>
         <module>zkspringboot-demos</module>

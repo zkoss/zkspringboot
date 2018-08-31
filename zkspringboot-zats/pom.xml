@@ -46,13 +46,15 @@
 			<groupId>org.zkoss.zkspringboot</groupId>
 			<artifactId>zkspringboot-starter</artifactId>
 			<version>${project.version}</version>
-			<scope>provided</scope>
+			<type>pom</type>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.zkoss.zats</groupId>
 			<artifactId>zats-mimic-ext7</artifactId>
 			<version>${zats.version}</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>

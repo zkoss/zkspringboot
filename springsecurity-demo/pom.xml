@@ -7,14 +7,10 @@
     <groupId>org.zkoss.zkspringessentials</groupId>
     <artifactId>spring-security-demo</artifactId>
     <version>1.0</version>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.4.RELEASE</version>
-    </parent>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <properties>
-        <zk.version>8.5.2</zk.version>
+        <zk.version>8.5.2-Eval</zk.version>
+        <springboot.version>2.0.4.RELEASE</springboot.version>
     </properties>
     <description>a project to show spring security working with ZK based on https://spring.io/guides/gs/securing-web/
     </description>
@@ -22,10 +18,6 @@
         <repository>
             <id>ZK EE</id>
             <url>http://mavensync.zkoss.org/maven2</url>
-        </repository>
-        <repository>
-            <id>ZK PE Evaluation</id>
-            <url>http://mavensync.zkoss.org/zk/pe-eval</url>
         </repository>
         <repository>
             <id>ZK EE Evaluation</id>
@@ -36,10 +28,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
+            <version>${springboot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.zkoss.zkspringboot</groupId>
@@ -52,26 +41,4 @@
             <version>${zk.version}</version>
         </dependency>
     </dependencies>
-    <build>
-        <plugins>
-            <!-- Run with Jetty -->
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.2.22.v20170606</version>
-                <configuration>
-                    <webAppConfig>
-                        <contextPath>/${project.artifactId}</contextPath>
-                        <allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
-                        <!-- no need to scan anything as we're using servlet 2.5 to reduce start-up time
-                        -->
-                        <webInfIncludeJarPattern>^$</webInfIncludeJarPattern>
-                        <containerIncludeJarPattern>^$</containerIncludeJarPattern>
-                    </webAppConfig>
-                    <scanIntervalSeconds>5</scanIntervalSeconds>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>

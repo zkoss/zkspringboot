@@ -1,0 +1,47 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.4.RELEASE")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+	mavenLocal()
+	maven { url "http://mavensync.zkoss.org/maven2" }
+	maven { url "http://mavensync.zkoss.org/eval" }
+	mavenCentral()
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+ext {
+	zkspringbootVersion = '1.0.2'
+	zkVersion = '8.5.2.1-Eval'
+	zatsVersion = '2.0.0'
+	junitVersion = '4.12'
+}
+
+dependencies {
+	compile ("org.zkoss.zkspringboot:zkspringboot-starter:${zkspringbootVersion}") {
+//		exclude module: "spring-boot-starter-tomcat"
+	}
+	compile "org.springframework.boot:spring-boot-starter-security:2.0.4.RELEASE"
+//	choose alternative servlet engine jetty/undertow (exclude tomcat above)
+	compile "org.springframework.boot:spring-boot-starter-jetty"
+//	compile "org.springframework.boot:spring-boot-starter-undertow"
+
+	def withoutSlf4J = { exclude group: "org.slf4j", module: "slf4j-jdk14" }
+	compile "org.zkoss.zk:zkmax:${zkVersion}", withoutSlf4J
+	compile "org.zkoss.zk:zuti:${zkVersion}", withoutSlf4J
+	compile "org.zkoss.zk:zkplus:${zkVersion}", withoutSlf4J
+
+	testCompile "org.zkoss.zats:zats-mimic-ext7:${zatsVersion}"
+	testCompile "junit:junit:${junitVersion}"
+}

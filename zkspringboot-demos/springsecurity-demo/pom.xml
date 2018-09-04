@@ -9,7 +9,7 @@
     <version>1.0</version>
     <packaging>jar</packaging>
     <properties>
-        <zk.version>8.5.2-Eval</zk.version>
+        <zk.version>8.5.2.1-Eval</zk.version>
         <springboot.version>2.0.4.RELEASE</springboot.version>
     </properties>
     <description>a project to show spring security working with ZK based on https://spring.io/guides/gs/securing-web/
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>org.zkoss.zkspringboot</groupId>
             <artifactId>zkspringboot-starter</artifactId>
-            <version>1.0.0-Eval</version>
+            <version>1.0.2</version>
         </dependency>
         <dependency>
             <groupId>org.zkoss.zk</groupId>
@@ -41,4 +41,20 @@
             <version>${zk.version}</version>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${springboot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -1,0 +1,4 @@
+<window>
+    This is a spring security + ZK demo app.
+    If you try to access <a href="/secure/main">a secure page</a>, you will be redirected to <a href="login">login page.</a>
+</window>

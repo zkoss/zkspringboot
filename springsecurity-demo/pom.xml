@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.zkoss.zkspringessentials</groupId>
+    <artifactId>spring-security-demo</artifactId>
+    <version>1.0</version>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.4.RELEASE</version>
+    </parent>
+    <packaging>war</packaging>
+    <properties>
+        <zk.version>8.5.2</zk.version>
+    </properties>
+    <description>a project to show spring security working with ZK based on https://spring.io/guides/gs/securing-web/
+    </description>
+    <repositories>
+        <repository>
+            <id>ZK EE</id>
+            <url>http://mavensync.zkoss.org/maven2</url>
+        </repository>
+        <repository>
+            <id>ZK PE Evaluation</id>
+            <url>http://mavensync.zkoss.org/zk/pe-eval</url>
+        </repository>
+        <repository>
+            <id>ZK EE Evaluation</id>
+            <url>http://mavensync.zkoss.org/zk/ee-eval</url>
+        </repository>
+    </repositories>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.zkoss.zkspringboot</groupId>
+            <artifactId>zkspringboot-starter</artifactId>
+            <version>1.0.0-Eval</version>
+        </dependency>
+        <dependency>
+            <groupId>org.zkoss.zk</groupId>
+            <artifactId>zkmax</artifactId>
+            <version>${zk.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <!-- Run with Jetty -->
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.2.22.v20170606</version>
+                <configuration>
+                    <webAppConfig>
+                        <contextPath>/${project.artifactId}</contextPath>
+                        <allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
+                        <!-- no need to scan anything as we're using servlet 2.5 to reduce start-up time
+                        -->
+                        <webInfIncludeJarPattern>^$</webInfIncludeJarPattern>
+                        <containerIncludeJarPattern>^$</containerIncludeJarPattern>
+                    </webAppConfig>
+                    <scanIntervalSeconds>5</scanIntervalSeconds>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

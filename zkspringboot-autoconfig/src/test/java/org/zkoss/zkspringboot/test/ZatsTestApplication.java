@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @SpringBootApplication
 @Controller
-public class IntegrationTestApplication {
+public class ZatsTestApplication {
 	@GetMapping("/test")
 	public String testPage() {
 		return "zul/test";

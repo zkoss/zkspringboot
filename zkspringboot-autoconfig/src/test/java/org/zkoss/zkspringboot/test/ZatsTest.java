@@ -12,7 +12,7 @@ import org.zkoss.zul.Label;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class ZkSpringbootZatsIntegrationTest {
+public class ZatsTest {
 
 	@ClassRule
 	public static AutoEnvironment env = new AutoEnvironment("src/test/webapp/WEB-INF", "src/test/webapp");

@@ -17,8 +17,7 @@ set -e
 bash ./upVer $ver-SNAPSHOT $pver
 
 mvn clean install -pl zkspringboot-starter -am
-mvn clean test -pl zkspringboot-zats
-mvn source:jar javadoc:jar repository:bundle-create --batch-mode -DskipTests -pl zkspringboot-zats -am
+mvn source:jar javadoc:jar repository:bundle-create --batch-mode -DskipTests -pl zkspringboot-starter -am
 
 cd $maindir
 bash ./prepare-upload.sh $pver

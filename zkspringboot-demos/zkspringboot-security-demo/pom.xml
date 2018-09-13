@@ -9,8 +9,13 @@
 	<version>1.0</version>
 	<packaging>jar</packaging>
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 		<zk.version>8.5.2.1-Eval</zk.version>
 		<springboot.version>2.0.4.RELEASE</springboot.version>
+		<zats.version>2.0.0</zats.version>
+		<junit.version>4.12</junit.version>
 	</properties>
 	<description>a project to show spring security working with ZK based on https://spring.io/guides/gs/securing-web/
 	</description>
@@ -46,6 +51,18 @@
 					<artifactId>slf4j-jdk14</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zats</groupId>
+			<artifactId>zats-mimic-ext7</artifactId>
+			<version>${zats.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<build>

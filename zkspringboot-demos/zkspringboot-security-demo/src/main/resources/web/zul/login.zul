@@ -17,7 +17,7 @@
                     <textbox type="password" name="password" value="password"/> </row>
                 <row spans="2" align="right">
                     <hlayout>
-                    <button type="reset" label="Reset" /> <button type="submit" label="Submit" />
+                    <button type="reset" label="Reset" /> <button type="submit" label="Login" />
                     </hlayout>
                 </row>
             </rows>

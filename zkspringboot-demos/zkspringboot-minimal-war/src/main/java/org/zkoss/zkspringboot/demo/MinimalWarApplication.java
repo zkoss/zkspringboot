@@ -6,7 +6,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-//@Controller
 public class MinimalWarApplication extends SpringBootServletInitializer {
 
 	@Override
@@ -17,9 +16,4 @@ public class MinimalWarApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(MinimalWarApplication.class);
 	}
-
-//	@GetMapping("/")
-//	public String demo() {
-//		return "/minimal";
-//	}
 }

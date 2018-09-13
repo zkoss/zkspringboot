@@ -20,8 +20,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<zkspringboot.version>1.0.2</zkspringboot.version>
+		<zkspringboot.version>1.0.3</zkspringboot.version>
 		<springboot.version>2.0.4.RELEASE</springboot.version>
+		<zats.version>2.0.0</zats.version>
+		<junit.version>4.12</junit.version>
 	</properties>
 
 	<dependencies>
@@ -44,6 +46,20 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<!-- enable zats testing - optional -->
+		<dependency>
+			<groupId>org.zkoss.zats</groupId>
+			<artifactId>zats-mimic-ext7</artifactId>
+			<version>${zats.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

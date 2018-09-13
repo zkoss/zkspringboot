@@ -4,7 +4,7 @@
 	<groupId>org.zkoss.zkspringboot</groupId>
 	<artifactId>zkspringboot-autoconfig</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.3-SNAPSHOT</version>
+	<version>1.0.4-SNAPSHOT</version>
 	<name>zkspringboot-autoconfig</name>
 	<description>zkspringboot-autoconfig</description>
 	<url>http://www.zkoss.org</url>
@@ -55,7 +55,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 			<version>${springboot.version}</version>
-            <scope>provided</scope>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -69,7 +69,7 @@
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkmax</artifactId>
 			<version>${zk.version}</version>
-            <scope>provided</scope>
+			<scope>provided</scope>
 			<optional>true</optional>
 		</dependency>
 

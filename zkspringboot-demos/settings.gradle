@@ -1,4 +1,4 @@
 include 'zkspringboot-minimal-jar'
 include 'zkspringboot-minimal-war'
 include 'zkspringboot-demo-jar'
-include 'springsecurity-demo'
+include 'zkspringboot-security-demo'

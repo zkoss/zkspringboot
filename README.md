@@ -59,5 +59,5 @@ ZK's UpdateServlet will locate the file on the classpath e.g. in `src/main/resou
 A configured prefix e.g. `/myprefix` will be inserted before the view name: `/zkau/web[/myprefix]/views/demo.zul`
 
 ### zk.richlet-filter-mapping
-Enables ZK's RichletFilter LINK ME the value has to be a servlet filter mapping such as: `/richlet/*`
+Enables [ZK's RichletFilter](https://www.zkoss.org/wiki/ZK_Developer's_Reference/UI_Composing/Richlet#Turn_on_Richlet) the value has to be a servlet filter mapping such as: `/richlet/*`
 Requires additional [richlet-mappings configured in zk.xml](https://www.zkoss.org/wiki/ZK_Configuration_Reference/zk.xml/The_richlet-mapping_Element).

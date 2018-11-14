@@ -1,0 +1,26 @@
+<zk xmlns:n="native">
+    <n:form action="/login" method="POST">
+        <grid width="450px">
+            <columns>
+                <column width="160px" />
+                <column width="280px" />
+            </columns>
+            <rows>
+                <row spans="2" align="center">
+                    <label value="LOGIN"/>
+                </row>
+                <row>
+                    <label value="User :"/>
+                    <textbox name="username" value="user"/></row>
+                <row>
+                    <label value="Password :"/>
+                    <textbox type="password" name="password" value="password"/> </row>
+                <row spans="2" align="right">
+                    <hlayout>
+                    <button type="reset" label="Reset" /> <button type="submit" label="Login" />
+                    </hlayout>
+                </row>
+            </rows>
+        </grid>
+    </n:form>
+</zk>

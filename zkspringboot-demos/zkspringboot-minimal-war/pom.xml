@@ -12,7 +12,7 @@
 		<repository>
 			<id>ZK CE</id>
 			<name>ZK CE Repository</name>
-			<url>http://mavensync.zkoss.org/maven2</url>
+			<url>https://mavensync.zkoss.org/maven2</url>
 		</repository>
 	</repositories>
 

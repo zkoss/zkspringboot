@@ -23,11 +23,11 @@
 	<repositories>
 		<repository>
 			<id>ZK EE</id>
-			<url>http://mavensync.zkoss.org/maven2</url>
+			<url>https://mavensync.zkoss.org/maven2</url>
 		</repository>
 		<repository>
 			<id>ZK EE Evaluation</id>
-			<url>http://mavensync.zkoss.org/zk/ee-eval</url>
+			<url>https://mavensync.zkoss.org/zk/ee-eval</url>
 		</repository>
 	</repositories>
 	<dependencies>

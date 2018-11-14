@@ -13,8 +13,8 @@ apply plugin: 'io.spring.dependency-management'
 
 repositories {
 	mavenLocal()
-	maven { url "http://mavensync.zkoss.org/maven2" }
-	maven { url "http://mavensync.zkoss.org/eval" }
+	maven { url "https://mavensync.zkoss.org/maven2" }
+	maven { url "https://mavensync.zkoss.org/eval" }
 	mavenCentral()
 }
 

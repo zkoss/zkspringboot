@@ -71,6 +71,12 @@
 
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkbind</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zuti</artifactId>
 			<version>${zk.version}</version>
 		</dependency>

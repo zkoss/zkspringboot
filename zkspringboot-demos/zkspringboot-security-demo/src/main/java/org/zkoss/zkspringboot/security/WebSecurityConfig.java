@@ -11,6 +11,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+/**
+ * This is an example of minimal configuration for ZK + Spring Security, we open as less access as possible to run a ZK-based application.
+ * Please understand the configuration and modify it upon your requirement.
+ */
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {

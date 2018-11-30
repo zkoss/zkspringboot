@@ -3,6 +3,7 @@
 * zkspringboot-minimal-jar - A Minimal jar example
 * zkspringboot-minimal-war - A Minimal war example
 * zkspringboot-demo-jar - An example jar showing multiple features including ZATS testing
+* zkspringboot-security-demo - Basic ZK + Spring Security integration ([learn and understand Spring Security first !!](https://spring.io/projects/spring-security#learn))
 
 ## Maven (using maven-wrapper)
 
@@ -15,6 +16,7 @@ run individual demo
     ./mvnw spring-boot:run -pl zkspringboot-minimal-jar
     ./mvnw spring-boot:run -pl zkspringboot-minimal-war
     ./mvnw spring-boot:run -pl zkspringboot-demo-jar
+    ./mvnw spring-boot:run -pl zkspringboot-security-demo
 
 run each demo from its individual folder
 
@@ -32,6 +34,7 @@ run individual demo
     ./gradlew zkspringboot-minimal-jar:bootRun
     ./gradlew zkspringboot-minimal-war:bootRun
     ./gradlew zkspringboot-demo-jar:bootRun
+    ./gradlew zkspringboot-security-demo:bootRun
 
 run each demo from its individual folder
 
@@ -40,7 +43,7 @@ run each demo from its individual folder
     
 ## Test urls
 
-After successfull startup the applications can be accessed under the following urls
+After successful startup the applications can be accessed under the following urls
 
 (for all demos)
 

@@ -22,7 +22,7 @@ sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
 ext {
-	zkspringbootVersion = '1.0.4-SNAPSHOT'
+	zkspringbootVersion = '1.0.4'
 	zkVersion = '8.6.0.1-Eval'
 	zatsVersion = '2.0.0'
 	junitVersion = '4.12'

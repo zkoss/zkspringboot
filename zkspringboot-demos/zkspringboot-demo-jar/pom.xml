@@ -12,12 +12,12 @@
 		<repository>
 			<id>ZK CE</id>
 			<name>ZK CE Repository</name>
-			<url>http://mavensync.zkoss.org/maven2</url>
+			<url>https://mavensync.zkoss.org/maven2</url>
 		</repository>
 		<repository>
 			<id>ZK EVAL</id>
 			<name>ZK Evaluation Repository</name>
-			<url>http://mavensync.zkoss.org/eval</url>
+			<url>https://mavensync.zkoss.org/eval</url>
 		</repository>
 	</repositories>
 
@@ -25,9 +25,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<zkspringboot.version>1.0.3</zkspringboot.version>
-		<springboot.version>2.0.4.RELEASE</springboot.version>
-		<zk.version>8.5.2.1-Eval</zk.version>
+		<zkspringboot.version>1.0.4-SNAPSHOT</zkspringboot.version>
+		<springboot.version>2.1.0.RELEASE</springboot.version>
+		<zk.version>8.6.0.1-Eval</zk.version>
 		<zats.version>2.0.0</zats.version>
 		<junit.version>4.12</junit.version>
 	</properties>
@@ -67,6 +67,12 @@
 					<artifactId>slf4j-jdk14</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkbind</artifactId>
+			<version>${zk.version}</version>
 		</dependency>
 
 		<dependency>

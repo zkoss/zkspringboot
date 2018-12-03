@@ -25,7 +25,7 @@ public class DevelopmentConfig {
 		Library.setProperty("org.zkoss.zk.WPD.cache", "false");
 		Library.setProperty("org.zkoss.zk.WCS.cache", "false");
 		Library.setProperty("org.zkoss.web.classWebResource.cache", "false");
-		Library.setProperty("org.zkoss.web.label.cache", "false");
+		Library.setProperty("org.zkoss.util.label.cache", "false");
 
 		// enable non minified js
 		WebApps.getCurrent().getConfiguration().setDebugJS(true);

@@ -5,7 +5,7 @@
     <artifactId>zkspringboot-parent</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>zkspringboot</name>
+    <name>zkspringboot-parent</name>
     <url>http://www.zkoss.org</url>
 
     <modules>

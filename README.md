@@ -12,7 +12,7 @@
 
 ## Configuration options (for Spring Boot style application.properties)
 
-Defaults as in [ZkProperties.java](zkspringboot-starter/src/main/java/org/zkoss/zkspringboot/ZkProperties.java)
+Defaults as in [ZkProperties.java](zkspringboot-autoconfig/src/main/java/org/zkoss/zkspringboot/ZkProperties.java)
 ```
 zk.springboot-packaging=jar
 

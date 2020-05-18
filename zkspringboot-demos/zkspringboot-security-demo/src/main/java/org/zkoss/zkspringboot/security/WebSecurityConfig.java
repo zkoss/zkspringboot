@@ -48,6 +48,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .logout().logoutUrl("/logout").logoutSuccessUrl("/");
     }
 
+    /**
+     * Creates an {@link InMemoryUserDetailsManager} for demo/testing purposes only. DON'T use this in production, see: {@link User#withUserDetails}!
+     * @return userDetailsService
+     */
     @Bean
     @Override
     public UserDetailsService userDetailsService() {

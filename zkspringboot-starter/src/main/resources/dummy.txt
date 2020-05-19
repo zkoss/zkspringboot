@@ -1,1 +1,0 @@
-TODO: remove when build/release jobs support pom artifacts

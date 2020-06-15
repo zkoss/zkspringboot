@@ -3,7 +3,7 @@ buildscript {
 		mavenCentral()
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.3.0.RELEASE")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.3.1.RELEASE")
 	}
 }
 
@@ -22,7 +22,7 @@ sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
 ext {
-	zkspringbootVersion = '2.3.0.1-SNAPSHOT'
+	zkspringbootVersion = '2.3.1-SNAPSHOT'
 	zkVersion = '9.0.0.1-Eval'
 	zatsVersion = '2.1.1'
 	junitVersion = '4.13'
@@ -32,7 +32,7 @@ dependencies {
 	compile ("org.zkoss.zkspringboot:zkspringboot-starter:${zkspringbootVersion}") {
 //		exclude module: "spring-boot-starter-tomcat"
 	}
-	compile "org.springframework.boot:spring-boot-starter-security:2.3.0.RELEASE"
+	compile "org.springframework.boot:spring-boot-starter-security:2.3.1.RELEASE"
 //	choose alternative servlet engine jetty/undertow (exclude tomcat above)
 	compile "org.springframework.boot:spring-boot-starter-jetty"
 //	compile "org.springframework.boot:spring-boot-starter-undertow"

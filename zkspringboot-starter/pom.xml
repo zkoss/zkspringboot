@@ -4,7 +4,7 @@
 	<groupId>org.zkoss.zkspringboot</groupId>
 	<artifactId>zkspringboot-starter</artifactId>
 	<packaging>pom</packaging>
-	<version>2.3.1-SNAPSHOT</version>
+	<version>2.3.1.1-SNAPSHOT</version>
 	<name>zkspringboot-starter</name>
 	<description>zkspringboot-starter</description>
 	<url>http://www.zkoss.org</url>

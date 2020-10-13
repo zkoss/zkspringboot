@@ -29,7 +29,7 @@
 		<springboot.version>2.3.1.RELEASE</springboot.version>
 		<zk.version>9.0.0.1-Eval</zk.version>
 		<zats.version>2.1.1</zats.version>
-		<junit.version>4.13</junit.version>
+		<junit.version>4.13.1</junit.version>
 	</properties>
 
 	<dependencies>

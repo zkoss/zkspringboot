@@ -25,7 +25,7 @@ ext {
 	zkspringbootVersion = '2.3.1'
 	zkVersion = '9.0.0.1-Eval'
 	zatsVersion = '2.1.1'
-	junitVersion = '4.13'
+	junitVersion = '4.13.1'
 }
 
 dependencies {

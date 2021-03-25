@@ -61,3 +61,17 @@ A configured prefix e.g. `/myprefix` will be inserted before the view name: `/zk
 ### zk.richlet-filter-mapping
 Enables [ZK's RichletFilter](https://www.zkoss.org/wiki/ZK_Developer's_Reference/UI_Composing/Richlet#Turn_on_Richlet) the value has to be a servlet filter mapping such as: `/richlet/*`
 Requires additional [richlet-mappings configured in zk.xml](https://www.zkoss.org/wiki/ZK_Configuration_Reference/zk.xml/The_richlet-mapping_Element).
+
+## Using springboot-devtools (restart)
+
+When using the restart feature of [spring-boot-devtools](https://docs.spring.io/spring-boot/docs/2.4.4/reference/html/using-spring-boot.html#using-boot-devtools) make sure to include the ZK jars in the restart process
+by [customizing the Restart Classloader](https://docs.spring.io/spring-boot/docs/2.4.4/reference/html/using-spring-boot.html#using-boot-devtools-customizing-classload).
+
+Create a file on the classpath:
+
+src/main/resources/**META-INF/spring-devtools.properties**
+
+    restart.include.zklibs=/z[\\w]+-[\\w\\d-\.]+\.jar
+
+This regex will match all jar files matching the expression e.g. `zk-9.5.1.jar` or `zul-9.5.1.jar` etc.
+

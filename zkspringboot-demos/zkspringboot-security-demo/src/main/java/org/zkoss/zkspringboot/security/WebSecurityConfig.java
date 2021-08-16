@@ -22,6 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String[] ZK_RESOURCES = {
             "/zkau/web/**/js/**",
             "/zkau/web/**/zul/css/**",
+            "/zkau/web/**/zkmax/css/**",
             "/zkau/web/**/font/**",
             "/zkau/web/**/img/**"
     };

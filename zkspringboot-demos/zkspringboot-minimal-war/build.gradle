@@ -10,7 +10,6 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
 
 repositories {
 	mavenLocal()
@@ -28,10 +27,14 @@ ext {
 	junitVersion = '4.13.1'
 }
 
-dependencies {
-	implementation "org.zkoss.zkspringboot:zkspringboot-starter:${zkspringbootVersion}"
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+configurations.testImplementation {
+	// conflicts with ZATS (which is using jetty)
+	exclude module: "spring-boot-starter-tomcat"
+}
 
+dependencies {
+	implementation ("org.zkoss.zkspringboot:zkspringboot-starter:${zkspringbootVersion}")
+	providedRuntime 'javax.servlet:javax.servlet-api:4.0.1'
 	testImplementation "org.zkoss.zats:zats-mimic-ext96:${zatsVersion}"
 	testImplementation "junit:junit:${junitVersion}"
 }

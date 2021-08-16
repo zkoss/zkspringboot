@@ -24,13 +24,11 @@ targetCompatibility = '1.8'
 ext {
 	zkspringbootVersion = '2.5.3-SNAPSHOT'
 	zkVersion = '9.6.0-Eval'
-	zatsVersion = '3.0.0'
-	junitVersion = '4.13.1'
 }
 
 dependencies {
 	implementation ("org.zkoss.zkspringboot:zkspringboot-starter:${zkspringbootVersion}") {
-		exclude module: "spring-boot-starter-tomcat"
+//		exclude module: "spring-boot-starter-tomcat"
 	}
 //	choose alternative servlet engine jetty/undertow (exclude tomcat above)
 //	implementation "org.springframework.boot:spring-boot-starter-jetty"
@@ -39,7 +37,4 @@ dependencies {
 	implementation "org.zkoss.zk:zkmax:${zkVersion}"
 	implementation "org.zkoss.zk:zuti:${zkVersion}"
 	implementation "org.zkoss.zk:zkplus:${zkVersion}"
-
-	testImplementation "org.zkoss.zats:zats-mimic-ext96:${zatsVersion}"
-	testImplementation "junit:junit:${junitVersion}"
 }

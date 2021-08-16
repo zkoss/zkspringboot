@@ -34,13 +34,10 @@ dependencies {
 	}
 	implementation "org.springframework.boot:spring-boot-starter-security:2.5.3"
 //	choose alternative servlet engine jetty/undertow (exclude tomcat above)
-	implementation "org.springframework.boot:spring-boot-starter-jetty"
+//	implementation "org.springframework.boot:spring-boot-starter-jetty"
 //	implementation "org.springframework.boot:spring-boot-starter-undertow"
 
 	implementation "org.zkoss.zk:zkmax:${zkVersion}"
 	implementation "org.zkoss.zk:zuti:${zkVersion}"
 	implementation "org.zkoss.zk:zkplus:${zkVersion}"
-
-	testImplementation "org.zkoss.zats:zats-mimic-ext96:${zatsVersion}"
-	testImplementation "junit:junit:${junitVersion}"
 }

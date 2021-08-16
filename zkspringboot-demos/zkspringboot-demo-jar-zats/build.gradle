@@ -1,0 +1,28 @@
+apply plugin: 'java'
+
+repositories {
+	mavenLocal()
+	maven { url "https://mavensync.zkoss.org/maven2" }
+	maven { url "https://mavensync.zkoss.org/eval" }
+	mavenCentral()
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+ext {
+	zkVersion = '9.6.0-Eval'
+	zatsVersion = '3.0.0'
+	junitVersion = '4.13.1'
+}
+
+dependencies {
+	testImplementation (project(':zkspringboot-demo-jar')) {
+		exclude module: "spring-boot-starter-tomcat"
+	}
+
+	testCompileOnly "org.zkoss.zk:zkmax:${zkVersion}"
+
+	testImplementation "org.zkoss.zats:zats-mimic-ext96:${zatsVersion}"
+	testImplementation "junit:junit:${junitVersion}"
+}

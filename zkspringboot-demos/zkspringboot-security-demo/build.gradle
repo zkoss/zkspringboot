@@ -3,7 +3,7 @@ buildscript {
 		mavenCentral()
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.3.1.RELEASE")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.5.3")
 	}
 }
 
@@ -22,26 +22,25 @@ sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
 ext {
-	zkspringbootVersion = '2.3.1.1-SNAPSHOT'
-	zkVersion = '9.0.0.1-Eval'
-	zatsVersion = '2.1.1'
+	zkspringbootVersion = '2.5.3-SNAPSHOT'
+	zkVersion = '9.6.0-Eval'
+	zatsVersion = '3.0.0'
 	junitVersion = '4.13.1'
 }
 
 dependencies {
-	compile ("org.zkoss.zkspringboot:zkspringboot-starter:${zkspringbootVersion}") {
+	implementation ("org.zkoss.zkspringboot:zkspringboot-starter:${zkspringbootVersion}") {
 //		exclude module: "spring-boot-starter-tomcat"
 	}
-	compile "org.springframework.boot:spring-boot-starter-security:2.3.1.RELEASE"
+	implementation "org.springframework.boot:spring-boot-starter-security:2.5.3"
 //	choose alternative servlet engine jetty/undertow (exclude tomcat above)
-	compile "org.springframework.boot:spring-boot-starter-jetty"
-//	compile "org.springframework.boot:spring-boot-starter-undertow"
+	implementation "org.springframework.boot:spring-boot-starter-jetty"
+//	implementation "org.springframework.boot:spring-boot-starter-undertow"
 
-	def withoutSlf4J = { exclude group: "org.slf4j", module: "slf4j-jdk14" }
-	compile "org.zkoss.zk:zkmax:${zkVersion}", withoutSlf4J
-	compile "org.zkoss.zk:zuti:${zkVersion}", withoutSlf4J
-	compile "org.zkoss.zk:zkplus:${zkVersion}", withoutSlf4J
+	implementation "org.zkoss.zk:zkmax:${zkVersion}"
+	implementation "org.zkoss.zk:zuti:${zkVersion}"
+	implementation "org.zkoss.zk:zkplus:${zkVersion}"
 
-	testCompile "org.zkoss.zats:zats-mimic-ext7:${zatsVersion}"
-	testCompile "junit:junit:${junitVersion}"
+	testImplementation "org.zkoss.zats:zats-mimic-ext96:${zatsVersion}"
+	testImplementation "junit:junit:${junitVersion}"
 }

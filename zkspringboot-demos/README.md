@@ -9,7 +9,8 @@
 
 build all demos
 
-    ./mvnw clean package
+    ./mvnw clean test
+    ./mvnw clean package -DskipTests
 
 run individual demo
     

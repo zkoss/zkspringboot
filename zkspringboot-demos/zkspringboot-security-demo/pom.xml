@@ -4,7 +4,7 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.zkoss.zkspringessentials</groupId>
+	<groupId>org.zkoss.zkspringboot</groupId>
 	<artifactId>zkspringboot-security-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -12,10 +12,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<zk.version>9.0.0.1-Eval</zk.version>
-		<zkspringboot.version>2.3.1.1-SNAPSHOT</zkspringboot.version>
-		<springboot.version>2.3.1.RELEASE</springboot.version>
-		<zats.version>2.1.1</zats.version>
+		<zk.version>9.6.0-Eval</zk.version>
+		<zkspringboot.version>2.5.3-SNAPSHOT</zkspringboot.version>
+		<springboot.version>2.5.3</springboot.version>
+		<zats.version>3.0.0</zats.version>
 		<junit.version>4.13.1</junit.version>
 	</properties>
 	<description>a project to show spring security working with ZK based on https://spring.io/guides/gs/securing-web/
@@ -32,38 +32,20 @@
 	</repositories>
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-			<version>${springboot.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>org.zkoss.zkspringboot</groupId>
 			<artifactId>zkspringboot-starter</artifactId>
 			<type>pom</type>
 			<version>${zkspringboot.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>${springboot.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkmax</artifactId>
 			<version>${zk.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-jdk14</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.zkoss.zats</groupId>
-			<artifactId>zats-mimic-ext7</artifactId>
-			<version>${zats.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<build>

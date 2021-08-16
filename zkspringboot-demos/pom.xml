@@ -12,7 +12,9 @@
 	<modules>
 		<module>zkspringboot-minimal-jar</module>
 		<module>zkspringboot-demo-jar</module>
+		<module>zkspringboot-demo-jar-zats</module>
 		<module>zkspringboot-minimal-war</module>
 		<module>zkspringboot-security-demo</module>
-	</modules>
+		<module>zkspringboot-security-demo-zats</module>
+    </modules>
 </project>

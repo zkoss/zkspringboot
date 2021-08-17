@@ -22,7 +22,7 @@ sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
 ext {
-	zkspringbootVersion = '2.5.3-SNAPSHOT'
+	zkspringbootVersion = '2.5.3'
 }
 
 dependencies {

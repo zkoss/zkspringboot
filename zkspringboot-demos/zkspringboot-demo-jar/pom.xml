@@ -44,6 +44,13 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- optinal: add this to enable validation for application properties -->
+<!--        <dependency>-->
+<!--            <groupId>org.hibernate</groupId>-->
+<!--            <artifactId>hibernate-validator</artifactId>-->
+<!--            <version>5.4.3.Final</version>-->
+<!--        </dependency>-->
+
         <!-- add ZK EE - optional -->
         <dependency>
             <groupId>org.zkoss.zk</groupId>

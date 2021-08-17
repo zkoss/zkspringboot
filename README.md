@@ -31,14 +31,15 @@ zk.update-uri=/zkau
 property | default | example(s) | description
 -------- | ------- | ------- | -----------
 `zk.springboot-packaging`      | `jar`   | `war`/`jar`       | package as jar or war file
-`zk.homepage`                  | empty   | `home`/`main`     | when set will setup a @GetMapping for "/" to return the configured view-name
+`zk.homepage`                  | null    | `home`/`main`     | when set will setup a @GetMapping for "/" to return the configured view-name
 `zk.zul-view-resolver-enabled` | `true`  | `true`/`false`    | enable/disable InternalViewResolver for zul files
 `zk.zul-view-resolver-prefix`  | empty   | `/zul`            | prefix prepended to a view name (i.e. a folder inside the web resource package on the classpath)
 `zk.zul-view-resolver-suffix`  | `.zul`  | `.zul`/`.zhtml`   | usually `.zul` does what you need
-`zk.richlet-filter-mapping`    | empty   | `/richlets/*`     | filter-mapping string as the basepath for richlets
+`zk.richlet-filter-mapping`    | null    | `/richlets/*`     | filter-mapping string as the basepath for richlets
 `zk.websockets-enabled=true`   | `true`  | `true`/`false`    | enable/disable websockets (available in ZK-EE)
 `zk.servlet3-push-enabled=true`| `true`  | `true`/`false`    | enable/disable servlet3 CometServerPush (available in ZK-EE)
-`zk.update-uri`                | `/zkau` | `/mypath`         | configure servlet path for ZK's update engine (rarely used)
+`zk.update-uri`                | `/zkau` | `/mypath`         | configure servlet path for ZK's Update Engine (rarely used)
+`zk.resource-uri`              | null    | `/zkres`          | configure/enable separate servlet path for ZK's Resource Engine (since ZK 9.5.0)
 
 ### zk.homepage
 Shortcut configuration to enable a Spring MVC Controller with a @GetMapping for the root path '/' returning the configured view name. (disabled by default).
@@ -59,8 +60,12 @@ ZK's UpdateServlet will locate the file on the classpath e.g. in `src/main/resou
 A configured prefix e.g. `/myprefix` will be inserted before the view name: `/zkau/web[/myprefix]/views/demo.zul`
 
 ### zk.richlet-filter-mapping
-Enables [ZK's RichletFilter](https://www.zkoss.org/wiki/ZK_Developer's_Reference/UI_Composing/Richlet#Turn_on_Richlet) the value has to be a servlet filter mapping such as: `/richlet/*`
+Enables [ZK's RichletFilter](https://www.zkoss.org/wiki/ZK_Developer's_Reference/UI_Composing/Richlet#Turn_on_Richlet). The value has to be a servlet filter mapping such as: `/richlet/*`
 Requires additional [richlet-mappings configured in zk.xml](https://www.zkoss.org/wiki/ZK_Configuration_Reference/zk.xml/The_richlet-mapping_Element).
+
+### zk.resource-uri 
+Registers and enables [ZK's Resource Engine](https://www.zkoss.org/wiki/ZK_Configuration_Reference/web.xml/ZK_Resource_Engine).
+When packging as war file this will also set the necessary [init-parameter for the ZK Loader Servlet](https://www.zkoss.org/wiki/ZK_Configuration_Reference/web.xml/ZK_Loader#The_Initial_Parameters)
 
 ## Using springboot-devtools (restart)
 

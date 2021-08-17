@@ -8,10 +8,13 @@ import javax.validation.constraints.Pattern;
 @ConfigurationProperties(prefix = "zk")
 @Validated
 public class ZkProperties {
-	@Pattern(regexp="(jar)|(war)")
+	@Pattern(regexp = "(jar)|(war)")
 	private String springbootPackaging = "jar";
 
+	@Pattern(regexp = "/[^/]+", message = "uri must start with a slash, and cannot contain any further slashes, e.g. '/zkau'")
 	private String updateUri = "/zkau";
+	@Pattern(regexp = "/[^/]+", message = "uri must start with a slash, and cannot contain any further slashes, e.g. '/zkres'")
+	private String resourceUri = null;
 	private boolean websocketsEnabled = true; //ZK-EE only
 	private boolean servlet3PushEnabled = true; //ZK-EE only
 
@@ -20,7 +23,7 @@ public class ZkProperties {
 	private String zulViewResolverPrefix = "";
 	private String zulViewResolverSuffix = ".zul";
 
-	private String richletFilterMapping;
+	private String richletFilterMapping = null;
 
 	public String getSpringbootPackaging() {
 		return springbootPackaging;
@@ -40,6 +43,14 @@ public class ZkProperties {
 
 	public void setUpdateUri(String updateUri) {
 		this.updateUri = updateUri;
+	}
+
+	public String getResourceUri() {
+		return resourceUri;
+	}
+
+	public void setResourceUri(String resourceUri) {
+		this.resourceUri = resourceUri;
 	}
 
 	public boolean isWebsocketsEnabled() {

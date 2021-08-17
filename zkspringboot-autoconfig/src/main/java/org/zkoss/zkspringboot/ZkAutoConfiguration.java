@@ -10,6 +10,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.zkoss.zk.au.http.DHtmlResourceServlet;
 import org.zkoss.zk.au.http.DHtmlUpdateServlet;
 import org.zkoss.zk.ui.http.DHtmlLayoutServlet;
 import org.zkoss.zk.ui.http.HttpSessionListener;
@@ -39,6 +40,9 @@ public class ZkAutoConfiguration {
 		final String[] mappings = {"*.zul", "*.zhtml"};
 		ServletRegistrationBean reg = new ServletRegistrationBean(new DHtmlLayoutServlet(), mappings);
 		reg.setInitParameters(Collections.singletonMap("update-uri", zkProperties.getUpdateUri()));
+		if(zkProperties.getResourceUri() != null) {
+			reg.setInitParameters(Collections.singletonMap("resource-uri", zkProperties.getResourceUri()));
+		}
 		reg.setLoadOnStartup(0);
 		logger.info("ZK-Springboot: ServletRegistrationBean for DHtmlLayoutServlet with url pattern " + Arrays.asList(mappings));
 		return reg;
@@ -85,7 +89,11 @@ public class ZkAutoConfiguration {
 			public void contextInitialized(ServletContextEvent sce) {
 				final ServletContext ctx = sce.getServletContext();
 				if (WebManager.getWebManagerIfAny(ctx) == null) {
-					webManager = new WebManager(ctx, zkProperties.getUpdateUri());
+					if(zkProperties.getResourceUri() == null) {
+						webManager = new WebManager(ctx, zkProperties.getUpdateUri());
+					} else {
+						webManager = new WebManager(ctx, zkProperties.getUpdateUri(), zkProperties.getResourceUri());
+					}
 				} else {
 					throw new IllegalStateException("ZK WebManager already exists. Could not initialize via Spring Boot configuration.");
 				}
@@ -99,6 +107,15 @@ public class ZkAutoConfiguration {
 			}
 		};
 	}
+
+	@Bean
+	@ConditionalOnProperty(prefix = "zk", name = "resource-uri")
+	public ServletRegistrationBean dHtmlResourceServlet() {
+		final String resourceUri = zkProperties.getResourceUri();
+		logger.info("ZK-Springboot: ServletRegistrationBean for DHtmlResourceServlet with path " + resourceUri);
+		return new ServletRegistrationBean(new DHtmlResourceServlet(), resourceUri + "/*");
+	}
+
 }
 
 

@@ -19,13 +19,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String ZUL_FILES = "/zkau/web/**/*.zul";
-    private static final String[] ZK_RESOURCES = {
-            "/zkau/web/**/js/**",
-            "/zkau/web/**/zul/css/**",
-            "/zkau/web/**/zkmax/css/**",
-            "/zkau/web/**/font/**",
-            "/zkau/web/**/img/**"
-    };
+    private static final String ZK_RESOURCES = "/zkres/**";
     // allow desktop cleanup after logout or when reloading login page
     private static final String REMOVE_DESKTOP_REGEX = "/zkau\\?dtid=.*&cmd_0=rmDesktop&.*";
 

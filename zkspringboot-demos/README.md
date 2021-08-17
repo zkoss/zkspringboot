@@ -1,10 +1,11 @@
 # ZK Spring-Boot Demos
 
 * zkspringboot-minimal-jar - A Minimal jar example
-* zkspringboot-minimal-war - A Minimal war example
-* zkspringboot-demo-jar - An example jar showing multiple features including ZATS testing
+* zkspringboot-minimal-war - A Minimal war example (incl. ZATS test example)
+* zkspringboot-demo-jar - An example jar showing multiple features
+* zkspringboot-demo-jar-zats - ZATS test project for zkspringboot-demo-jar
 * zkspringboot-security-demo - Basic ZK + Spring Security integration ([learn and understand Spring Security first !!](https://spring.io/projects/spring-security#learn))
-
+* zkspringboot-security-demo-zats - ZATS test project for zkspringboot-security-demo
 ## Maven (using maven-wrapper)
 
 build all demos

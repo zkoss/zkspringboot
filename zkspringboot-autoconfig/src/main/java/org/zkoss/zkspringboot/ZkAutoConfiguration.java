@@ -17,6 +17,7 @@ import org.zkoss.zk.ui.http.HttpSessionListener;
 import org.zkoss.zk.ui.http.RichletFilter;
 import org.zkoss.zk.ui.http.WebManager;
 
+import javax.servlet.DispatcherType;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import java.util.Arrays;
@@ -53,6 +54,7 @@ public class ZkAutoConfiguration {
 	public FilterRegistrationBean richletFilter() {
 		final String richletFilterMapping = zkProperties.getRichletFilterMapping();
 		FilterRegistrationBean reg = new FilterRegistrationBean(new RichletFilter());
+		reg.setDispatcherTypes(DispatcherType.REQUEST, DispatcherType.INCLUDE); // Support ZK include component with defer mode.
 		reg.addUrlPatterns(richletFilterMapping);
 		logger.info("ZK-Springboot: FilterRegistrationBean for RichletFilter with url pattern " + richletFilterMapping);
 		return reg;

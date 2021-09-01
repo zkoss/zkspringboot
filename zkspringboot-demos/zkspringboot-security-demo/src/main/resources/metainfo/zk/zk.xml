@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+    <config-name>springboot</config-name>
+    <session-config>
+        <session-timeout>10</session-timeout>
+        <timeout-uri>/timeout.zul</timeout-uri>
+        <automatic-timeout>true</automatic-timeout>
+    </session-config>
+    <client-config>
+        <!-- fixed since 9.5.1 - https://tracker.zkoss.org/browse/ZK-4742 -->
+        <error-reload>
+            <device-type>ajax</device-type>
+            <error-code>403</error-code>
+            <reload-uri>/login</reload-uri>
+        </error-reload>
+    </client-config>
+</zk>

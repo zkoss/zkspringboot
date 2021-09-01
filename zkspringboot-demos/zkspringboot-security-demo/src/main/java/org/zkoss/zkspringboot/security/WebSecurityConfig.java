@@ -10,6 +10,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.authentication.Http403ForbiddenEntryPoint;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
  * This is an example of minimal configuration for ZK + Spring Security, we open as less access as possible to run a ZK-based application.
@@ -40,7 +42,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .formLogin()
             .loginPage("/login").defaultSuccessUrl("/secure/main")
             .and()
-            .logout().logoutUrl("/logout").logoutSuccessUrl("/");
+            .logout().logoutUrl("/logout").logoutSuccessUrl("/login")
+            //turn the response to au request from 302 to 403 e.g. au request after session timeout
+            .and()
+            .exceptionHandling()
+            .defaultAuthenticationEntryPointFor(
+                new Http403ForbiddenEntryPoint(),
+                new AntPathRequestMatcher("/zkau", "POST"));
+
     }
 
     /**

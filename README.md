@@ -80,3 +80,13 @@ src/main/resources/**META-INF/spring-devtools.properties**
 
 This regex will match all jar files matching the expression e.g. `zk-9.5.1.jar` or `zul-9.5.1.jar` etc.
 
+### Restart for zul change
+To trigger a restart after a zul change, please see [Triggering a restart](https://docs.spring.io/spring-boot/docs/2.4.4/reference/html/using-spring-boot.html#using-boot-devtools-restart)
+
+
+## Debug Spring Boot Application
+To make breakpoints stop in IDE, run debug mode with the parameter below:
+
+`spring-boot:run -Dspring-boot.run.fork=false`
+
+Notice this will also disable springboot-devtools, no restart happens.

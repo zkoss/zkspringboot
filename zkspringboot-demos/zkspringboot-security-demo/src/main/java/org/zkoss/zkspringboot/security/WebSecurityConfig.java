@@ -25,17 +25,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // you need to disable spring CSRF to make ZK AU pass security filter
         // ZK already sends a AJAX request with a built-in CSRF token,
         // please refer to https://www.zkoss.org/wiki/ZK%20Developer's%20Reference/Security%20Tips/Cross-site%20Request%20Forgery
         http.csrf().disable();
         http.authorizeRequests()
-            .antMatchers(ZUL_FILES).denyAll() // block direct access to zul files
+            .antMatchers(ZUL_FILES).denyAll() // block direct access to zul under class path web resource folder
             .antMatchers(HttpMethod.GET, ZK_RESOURCES).permitAll() // allow zk resources
             .regexMatchers(HttpMethod.GET, REMOVE_DESKTOP_REGEX).permitAll() // allow desktop cleanup
             .requestMatchers(req -> "rmDesktop".equals(req.getParameter("cmd_0"))).permitAll() // allow desktop cleanup from ZATS
-            .mvcMatchers("/","/login","/logout").permitAll()
+            .mvcMatchers("/","/login","/logout").permitAll() //permit the URL for login and logout
             .mvcMatchers("/secure").hasRole("USER")
-            .anyRequest().authenticated()
+            .anyRequest().authenticated() //enforce all requests to be authenticated
             .and()
             .formLogin()
             .loginPage("/login").defaultSuccessUrl("/secure/main")

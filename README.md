@@ -80,13 +80,10 @@ src/main/resources/**META-INF/spring-devtools.properties**
 
 This regex will match all jar files matching the expression e.g. `zk-9.5.1.jar` or `zul-9.5.1.jar` etc.
 
-### Restart for zul change
-To trigger a restart after a zul change, please see [Triggering a restart](https://docs.spring.io/spring-boot/docs/2.4.4/reference/html/using-spring-boot.html#using-boot-devtools-restart)
+### Reload zul change
+add `spring.profiles.active=dev` in `application.properties`. After modifying a zul, re-build it, then your browser can load the latest zul.
+See [Triggering a restart](https://docs.spring.io/spring-boot/docs/2.4.4/reference/html/using-spring-boot.html#using-boot-devtools-restart)
 
 
 ## Debug Spring Boot Application
-To make breakpoints stop in IDE, run debug mode with the parameter below:
-
-`spring-boot:run -Dspring-boot.run.fork=false`
-
-Notice this will also disable springboot-devtools, no restart happens.
+Because a breakpoint doesn't stop when running with Maven `springboot:run`, you can run an application with `@SpringBootApplication` class as a Java application in debug mode. 

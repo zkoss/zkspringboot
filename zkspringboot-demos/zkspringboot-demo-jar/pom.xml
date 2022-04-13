@@ -29,8 +29,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <zkspringboot.version>2.5.3</zkspringboot.version>
-        <springboot.version>2.5.3</springboot.version>
+        <zkspringboot.version>2.5.12</zkspringboot.version>
+        <springboot.version>2.5.12</springboot.version>
         <zk.version>9.6.0-Eval</zk.version>
     </properties>
 

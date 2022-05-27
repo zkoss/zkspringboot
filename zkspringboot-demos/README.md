@@ -58,3 +58,6 @@ http://localhost:8080/mvvm - featuring basic mvvm based navigation
 http://localhost:8080/resources - demonstrating how to access resources
 
 http://localhost:8080/richlet/example - basic example richlet
+
+# Debug
+run with maven goal doesn't stop in a breakpoints. You need to run the main method in the class with `@SpringBootApplication` in Debug mode.

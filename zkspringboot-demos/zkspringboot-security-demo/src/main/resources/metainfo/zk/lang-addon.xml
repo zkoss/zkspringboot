@@ -1,0 +1,12 @@
+<language-addon>
+	<addon-name>zkspringboot-demo-addon</addon-name>
+	<version>1.0</version>
+	<language-name>xul/html</language-name>
+
+	<depends>zuti</depends>
+
+	<component>
+		<component-name>custom-navbar</component-name>
+		<template-uri>~./custom-navbar.zul</template-uri>
+	</component>
+</language-addon>

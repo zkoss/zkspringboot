@@ -1,0 +1,10 @@
+<zk xmlns:h="native">
+
+    <div sclass="menubar" hflex="1">
+        custom navbar
+        <forEach items="${menus}" var="menu">
+            <div>${menu}</div>
+        </forEach>
+    </div>
+
+</zk>

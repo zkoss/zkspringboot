@@ -1,6 +1,11 @@
 <zk>
-	What's your name: <textbox id="demoInput"/>
-	<button id="demoButton" label="Submit" onClick='demoLabel.setValue("Hello " + demoInput.getValue() + "!")'/>
-	<separator/>
-	<label id="demoLabel"/>
+	<zscript><![CDATA[
+		import org.zkoss.zkspringboot.demo.Menu;
+
+		List menus = new LinkedList();
+		Menu menu1 = new Menu("m1");
+		menus.add(menu1);
+	]]></zscript>
+	<custom-navbar/>
+	<video/>
 </zk>

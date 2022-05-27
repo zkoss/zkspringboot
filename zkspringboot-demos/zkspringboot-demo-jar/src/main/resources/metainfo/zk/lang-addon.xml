@@ -3,8 +3,12 @@
 	<version>1.0</version>
 	<language-name>xul/html</language-name>
 
-	<depends>zkmax</depends>
+	<depends>zuti</depends>
 
 	<stylesheet href="/css/static-globalstyles.css" type="text/css"/>
 	<stylesheet href="~./css/web-globalstyles.css" type="text/css"/>
+	<component>
+		<component-name>custom-navbar</component-name>
+		<template-uri>~./custom-navbar.zul</template-uri>
+	</component>
 </language-addon>

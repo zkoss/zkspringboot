@@ -3,9 +3,9 @@
 	<config-name>zkspringboot-demo</config-name>
 
 	<!--enable websocket support in ZK 8.5.1 (ZK-3799)  -->
-	<listener>
-		<listener-class>org.zkoss.zkmax.au.websocket.WebSocketWebAppInit</listener-class>
-	</listener>
+<!--	<listener>-->
+<!--		<listener-class>org.zkoss.zkmax.au.websocket.WebSocketWebAppInit</listener-class>-->
+<!--	</listener>-->
 
 	<richlet>
 		<richlet-name>ExampleRichlet</richlet-name><!-- your preferred name -->

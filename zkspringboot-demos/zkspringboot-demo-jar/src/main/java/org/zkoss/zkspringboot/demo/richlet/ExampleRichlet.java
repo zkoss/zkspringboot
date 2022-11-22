@@ -28,7 +28,7 @@ public class ExampleRichlet extends GenericRichlet {
 		window.setPage(page);
 		Button button = new Button("Get Time from Spring Service");
 		button.addEventListener("onClick", event -> {
-			Label label = new Label("Current Time: " + testService.getTime());
+			Label label = new Label("Current Time: " + testService.getAppCode());
 			window.appendChild(new Separator());
 			window.appendChild(label);
 		});

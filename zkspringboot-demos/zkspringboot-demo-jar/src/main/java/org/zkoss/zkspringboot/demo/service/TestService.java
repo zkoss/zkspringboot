@@ -13,4 +13,8 @@ public class TestService {
 	public Date getTime() {
 		return new Date();
 	}
+
+	public String getAppCode(){
+		return  appCode;
+	}
 }

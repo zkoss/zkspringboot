@@ -8,6 +8,7 @@
 		</hlayout>
 
 		<separator />
+		<button label="show" onClick="@command('show')"/>
 
 		Simple MVVM-Based Sub Navigation:
 		<div>

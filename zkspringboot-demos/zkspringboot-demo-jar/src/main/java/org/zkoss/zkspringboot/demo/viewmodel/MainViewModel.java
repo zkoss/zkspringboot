@@ -6,8 +6,9 @@ import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zk.ui.util.Notification;
 import org.zkoss.zkplus.spring.DelegatingVariableResolver;
-import org.zkoss.zkspringboot.demo.service.TestService;
+import org.zkoss.zkspringboot.demo.service.*;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -18,6 +19,9 @@ public class MainViewModel {
 
 	@WireVariable
 	private TestService testService;
+
+	@WireVariable
+	private AppConfig appConfig;
 
 	Map<String, PageModel<String>> pages = new HashMap<>();
 	private PageModel<String> currentPage;
@@ -42,6 +46,11 @@ public class MainViewModel {
 	@NotifyChange("currentPage")
 	public void navigate(@BindingParam("page") String page) {
 		this.currentPage = pages.get(page);
+	}
+
+	@Command
+	public void show(){
+		Notification.show(appConfig.appCode);
 	}
 
 	public PageModel getCurrentPage() {

@@ -14,6 +14,11 @@
 			<name>ZK CE Repository</name>
 			<url>https://mavensync.zkoss.org/maven2</url>
 		</repository>
+		<repository>
+			<id>ZK EVAL</id>
+			<name>ZK Evaluation Repository</name>
+			<url>https://mavensync.zkoss.org/eval</url>
+		</repository>
 	</repositories>
 
 	<properties>

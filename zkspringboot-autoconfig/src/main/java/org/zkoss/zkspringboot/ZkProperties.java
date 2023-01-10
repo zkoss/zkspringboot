@@ -3,7 +3,7 @@ package org.zkoss.zkspringboot;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.constraints.Pattern;
+import jakarta.validation.constraints.Pattern;
 
 @ConfigurationProperties(prefix = "zk")
 @Validated

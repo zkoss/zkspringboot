@@ -4,7 +4,7 @@
 	<groupId>org.zkoss.zkspringboot</groupId>
 	<artifactId>zkspringboot-autoconfig</artifactId>
 	<packaging>jar</packaging>
-	<version>2.5.12-SNAPSHOT</version>
+	<version>3.0.0-SNAPSHOT</version>
 	<name>zkspringboot-autoconfig</name>
 	<description>zkspringboot-autoconfig</description>
 	<url>http://www.zkoss.org</url>
@@ -44,13 +44,13 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<springboot.version>2.5.12</springboot.version>
-		<zk.version>9.6.0</zk.version>
+		<springboot.version>3.0.0</springboot.version>
+		<zk.version>9.6.3-jakarta</zk.version>
 
-		<zats.version>3.0.0</zats.version>
+		<zats.version>4.0.0</zats.version>
 		<junit.version>4.13.1</junit.version>
 	</properties>
 
@@ -74,7 +74,13 @@
 			<version>${springboot.version}</version>
 			<scope>provided</scope>
 		</dependency>
-
+		<!-- ZK brings a dependency to slf4j 1.7.x, but we need 2.0.x to have it working with logback 1.4 -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>2.0.4</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -83,9 +89,9 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<version>5.0.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -98,7 +104,7 @@
 
 		<dependency>
 			<groupId>org.zkoss.zats</groupId>
-			<artifactId>zats-mimic-ext96</artifactId>
+			<artifactId>zats-mimic</artifactId>
 			<version>${zats.version}</version>
 			<scope>test</scope>
 		</dependency>

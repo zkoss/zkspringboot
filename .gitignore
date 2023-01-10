@@ -4,3 +4,10 @@ target/
 .gradle/
 build/
 
+# eclipse stuff
+.project
+.classpath
+.factorypath
+.settings
+bin/
+/.metadata/

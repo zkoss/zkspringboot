@@ -1,5 +1,8 @@
 package org.zkoss.zkspringboot;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -17,17 +20,15 @@ import org.zkoss.zk.ui.http.HttpSessionListener;
 import org.zkoss.zk.ui.http.RichletFilter;
 import org.zkoss.zk.ui.http.WebManager;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
-import java.util.Arrays;
-import java.util.Collections;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
 
 @Configuration
-@EnableConfigurationProperties({ZkProperties.class})
+@EnableConfigurationProperties({ ZkProperties.class })
 public class ZkAutoConfiguration {
-	private static final Logger logger = LoggerFactory.getLogger(ZkAutoConfiguration.class);
+	private static final Logger	logger	= LoggerFactory.getLogger(ZkAutoConfiguration.class);
 
-	private final ZkProperties zkProperties;
+	private final ZkProperties	zkProperties;
 
 	public ZkAutoConfiguration(ZkProperties zkProperties) {
 		this.zkProperties = zkProperties;
@@ -36,11 +37,11 @@ public class ZkAutoConfiguration {
 	// original zk layout servlet (only for war files)
 	@Bean
 	@ConditionalOnProperty(prefix = "zk", name = "springboot-packaging", havingValue = "war", matchIfMissing = false)
-	public ServletRegistrationBean dHtmlLayoutServlet() {
-		final String[] mappings = {"*.zul", "*.zhtml"};
-		ServletRegistrationBean reg = new ServletRegistrationBean(new DHtmlLayoutServlet(), mappings);
+	public ServletRegistrationBean<DHtmlLayoutServlet> dHtmlLayoutServlet() {
+		final String[] mappings = { "*.zul", "*.zhtml" };
+		ServletRegistrationBean<DHtmlLayoutServlet> reg = new ServletRegistrationBean<>(new DHtmlLayoutServlet(), mappings);
 		reg.setInitParameters(Collections.singletonMap("update-uri", zkProperties.getUpdateUri()));
-		if(zkProperties.getResourceUri() != null) {
+		if (zkProperties.getResourceUri() != null) {
 			reg.setInitParameters(Collections.singletonMap("resource-uri", zkProperties.getResourceUri()));
 		}
 		reg.setLoadOnStartup(0);
@@ -50,9 +51,9 @@ public class ZkAutoConfiguration {
 
 	@Bean
 	@ConditionalOnProperty(prefix = "zk", name = "richlet-filter-mapping")
-	public FilterRegistrationBean richletFilter() {
+	public FilterRegistrationBean<RichletFilter> richletFilter() {
 		final String richletFilterMapping = zkProperties.getRichletFilterMapping();
-		FilterRegistrationBean reg = new FilterRegistrationBean(new RichletFilter());
+		FilterRegistrationBean<RichletFilter> reg = new FilterRegistrationBean<>(new RichletFilter());
 		reg.addUrlPatterns(richletFilterMapping);
 		logger.info("ZK-Springboot: FilterRegistrationBean for RichletFilter with url pattern " + richletFilterMapping);
 		return reg;
@@ -60,16 +61,16 @@ public class ZkAutoConfiguration {
 
 	@Bean
 	@ConditionalOnClass(name = "org.zkoss.zats.mimic.Zats") //Zats doesn't support custom update URI.
-	public ServletRegistrationBean defaultDHtmlUpdateServlet() {
-		return new ServletRegistrationBean(new DHtmlUpdateServlet(), "/zkau/*");
+	public ServletRegistrationBean<DHtmlUpdateServlet> defaultDHtmlUpdateServlet() {
+		return new ServletRegistrationBean<>(new DHtmlUpdateServlet(), "/zkau/*");
 	}
 
 	@Bean
 	@ConditionalOnMissingClass("org.zkoss.zats.mimic.Zats") //only allow custom update URI outside Zats testcases.
-	public ServletRegistrationBean customizableDHtmlUpdateServlet() {
+	public ServletRegistrationBean<DHtmlUpdateServlet> customizableDHtmlUpdateServlet() {
 		final String updateUri = zkProperties.getUpdateUri();
 		logger.info("ZK-Springboot: ServletRegistrationBean for DHtmlUpdateServlet with path " + updateUri);
-		return new ServletRegistrationBean(new DHtmlUpdateServlet(), updateUri + "/*");
+		return new ServletRegistrationBean<>(new DHtmlUpdateServlet(), updateUri + "/*");
 	}
 
 	/**
@@ -89,7 +90,7 @@ public class ZkAutoConfiguration {
 			public void contextInitialized(ServletContextEvent sce) {
 				final ServletContext ctx = sce.getServletContext();
 				if (WebManager.getWebManagerIfAny(ctx) == null) {
-					if(zkProperties.getResourceUri() == null) {
+					if (zkProperties.getResourceUri() == null) {
 						webManager = new WebManager(ctx, zkProperties.getUpdateUri());
 					} else {
 						webManager = new WebManager(ctx, zkProperties.getUpdateUri(), zkProperties.getResourceUri());
@@ -110,12 +111,10 @@ public class ZkAutoConfiguration {
 
 	@Bean
 	@ConditionalOnProperty(prefix = "zk", name = "resource-uri")
-	public ServletRegistrationBean dHtmlResourceServlet() {
+	public ServletRegistrationBean<DHtmlResourceServlet> dHtmlResourceServlet() {
 		final String resourceUri = zkProperties.getResourceUri();
 		logger.info("ZK-Springboot: ServletRegistrationBean for DHtmlResourceServlet with path " + resourceUri);
-		return new ServletRegistrationBean(new DHtmlResourceServlet(), resourceUri + "/*");
+		return new ServletRegistrationBean<>(new DHtmlResourceServlet(), resourceUri + "/*");
 	}
 
 }
-
-

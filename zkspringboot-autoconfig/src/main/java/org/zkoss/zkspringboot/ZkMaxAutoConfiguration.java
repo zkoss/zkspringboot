@@ -32,9 +32,9 @@ public class ZkMaxAutoConfiguration {
 
 	@Bean
 	@ConditionalOnProperty(prefix = "zk", name = "servlet3-push-enabled", matchIfMissing = true)
-	public ServletRegistrationBean cometAsyncServlet() {
+	public ServletRegistrationBean<CometAsyncServlet> cometAsyncServlet() {
 		final String cometUri = "/zkcomet";
-		ServletRegistrationBean reg = new ServletRegistrationBean(new CometAsyncServlet(), cometUri + "/*");
+		ServletRegistrationBean<CometAsyncServlet> reg = new ServletRegistrationBean<>(new CometAsyncServlet(), cometUri + "/*");
 		reg.setAsyncSupported(true);
 		logger.info("ZK-Springboot: ServletRegistrationBean for CometAsyncServlet with path " + cometUri);
 		return reg;
@@ -43,8 +43,8 @@ public class ZkMaxAutoConfiguration {
 	//optional: use when websockets are enabled in zk.xml
 	@Bean
 	@ConditionalOnProperty(prefix = "zk", name = "websockets-enabled", matchIfMissing = true)
-	public FilterRegistrationBean wsFilter() {
-		FilterRegistrationBean reg = new FilterRegistrationBean(new WebSocketFilter());
+	public FilterRegistrationBean<WebSocketFilter> wsFilter() {
+		FilterRegistrationBean<WebSocketFilter> reg = new FilterRegistrationBean<>(new WebSocketFilter());
 		final String webSocketUrl = WebSocketWebAppInit.getWebSocketUrl();
 		reg.addUrlPatterns(webSocketUrl + "/*");
 		logger.info("ZK-Springboot: FilterRegistrationBean for WebSocketFilter with path " + webSocketUrl);

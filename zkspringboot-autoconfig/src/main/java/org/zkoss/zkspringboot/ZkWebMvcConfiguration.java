@@ -23,7 +23,7 @@ public class ZkWebMvcConfiguration implements WebMvcConfigurer {
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
 		if(zkProperties.isZulViewResolverEnabled()) {
-			final String springbootPackaging = zkProperties.getSpringbootPackaging();
+			// final String springbootPackaging = zkProperties.getSpringbootPackaging();
 			String prefix;
 			if(zkProperties.isWar()) {
 				prefix = zkProperties.getZulViewResolverPrefix() + "/";

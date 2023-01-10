@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Profile;
 import org.zkoss.lang.Library;
 import org.zkoss.zk.ui.WebApps;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 @Configuration
 @Profile("dev")

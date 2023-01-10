@@ -10,12 +10,12 @@
 	<packaging>jar</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<zk.version>9.6.0-Eval</zk.version>
-		<zkspringboot.version>2.5.12</zkspringboot.version>
-		<springboot.version>2.5.12</springboot.version>
-		<zats.version>3.0.0</zats.version>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+		<zk.version>9.6.3-jakarta-Eval</zk.version>
+		<zkspringboot.version>3.0.0-SNAPSHOT</zkspringboot.version>
+		<springboot.version>3.0.0</springboot.version>
+		<zats.version>4.0.0</zats.version>
 		<junit.version>4.13.1</junit.version>
 	</properties>
 	<description>a project to show spring security working with ZK based on https://spring.io/guides/gs/securing-web/

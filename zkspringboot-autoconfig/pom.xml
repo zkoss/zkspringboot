@@ -48,7 +48,7 @@
 		<maven.compiler.target>17</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<springboot.version>3.0.0</springboot.version>
-		<zk.version>9.6.3-jakarta</zk.version>
+		<zk.version>9.6.0-jakarta</zk.version>
 		<zats.version>4.0.0</zats.version>
 		<junit.version>4.13.1</junit.version>
 	</properties>
@@ -73,7 +73,6 @@
 			<version>${springboot.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- ZK brings a dependency to slf4j 1.7.x, but we need 2.0.x to have it working with logback 1.4 -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>

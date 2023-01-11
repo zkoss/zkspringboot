@@ -31,7 +31,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <zkspringboot.version>3.0.0-SNAPSHOT</zkspringboot.version>
         <springboot.version>3.0.0</springboot.version>
-        <zk.version>9.6.3-jakarta-Eval</zk.version>
+        <zk.version>9.6.0-jakarta</zk.version>
     </properties>
 
     <dependencies>

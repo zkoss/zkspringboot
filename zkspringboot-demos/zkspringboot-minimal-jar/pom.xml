@@ -18,10 +18,10 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<zkspringboot.version>2.7.7</zkspringboot.version>
-		<springboot.version>2.7.7</springboot.version>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+		<zkspringboot.version>3.0.0-SNAPSHOT</zkspringboot.version>
+		<springboot.version>3.0.0</springboot.version>
 	</properties>
 
 	<dependencies>

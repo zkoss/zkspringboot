@@ -24,9 +24,9 @@
     </repositories>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <zats.version>3.0.0</zats.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <zats.version>4.0.0</zats.version>
         <junit.version>4.13.1</junit.version>
     </properties>
 
@@ -45,7 +45,7 @@
 
         <dependency>
             <groupId>org.zkoss.zats</groupId>
-            <artifactId>zats-mimic-ext96</artifactId>
+            <artifactId>zats-mimic</artifactId>
             <version>${zats.version}</version>
             <scope>test</scope>
         </dependency>

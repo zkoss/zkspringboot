@@ -3,7 +3,7 @@ buildscript {
 		mavenCentral()
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.5.12")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:3.0.0")
 	}
 }
 
@@ -18,12 +18,12 @@ repositories {
 	mavenCentral()
 }
 
-sourceCompatibility = '1.8'
-targetCompatibility = '1.8'
+sourceCompatibility = '17'
+targetCompatibility = '17'
 
 ext {
-	zkspringbootVersion = '2.5.12'
-	zatsVersion = '3.0.0'
+	zkspringbootVersion = '3.0.0-SNAPSHOT'
+	zatsVersion = '4.0.0'
 	junitVersion = '4.13.1'
 }
 
@@ -34,7 +34,6 @@ configurations.testImplementation {
 
 dependencies {
 	implementation ("org.zkoss.zkspringboot:zkspringboot-starter:${zkspringbootVersion}")
-	providedRuntime 'javax.servlet:javax.servlet-api:4.0.1'
 	testImplementation "org.zkoss.zats:zats-mimic-ext96:${zatsVersion}"
 	testImplementation "junit:junit:${junitVersion}"
 }

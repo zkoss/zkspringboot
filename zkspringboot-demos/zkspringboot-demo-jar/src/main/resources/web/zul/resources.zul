@@ -1,6 +1,8 @@
 <zk>
 	<!-- local stylesheets -->
-	<!-- loaded from src/main/resources/static -->  <!-- seems spring boot specific -->
+	<!--spring boot default static content
+	https://docs.spring.io/spring-boot/docs/2.5.12/reference/htmlsingle/#features.developing-web-applications.spring-mvc.static-content -->
+	<!-- loaded from src/main/resources/static -->
 	<style src="/css/static-localstyles.css"/>
 	<!-- loaded from classpath web/css --> <!-- ZK's class-web-resource folder can be loaded from classpath or jar below the 'web' package  -->
 	<style src="~./css/web-localstyles.css"/>

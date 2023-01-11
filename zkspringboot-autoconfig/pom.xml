@@ -49,7 +49,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<springboot.version>3.0.0</springboot.version>
 		<zk.version>9.6.3-jakarta</zk.version>
-
 		<zats.version>4.0.0</zats.version>
 		<junit.version>4.13.1</junit.version>
 	</properties>

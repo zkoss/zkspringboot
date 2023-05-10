@@ -1,7 +1,18 @@
-# ZK - Spring Boot
+# ZK - Spring Boot Starter
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
+* [zkspringboot-starter](zkspringboot-starter) : the starter project that helps you use spring-boot with zk easily.
+* [zkspringboot-autoconfig](zkspringboot-autoconfig) : apply default configuration in spring-boot for ZK.
+* [zkspringboot-demos](zkspringboot-demos) : contains demo projects.
+
+
+[Spring Boot 3.0](https://spring.io/blog/2022/05/24/preparing-for-spring-boot-3-0) makes use of Jakarta EE 9 APIs (`jakarta.*`) instead of EE 8 (`javax.*`).
+
 *(Adapted from Dirk's amazing [zk-spring-boot-starter](https://github.com/dirkdeyne/zk-spring-boot-starter) - Thanks a lot for the input and ideas!)*
+## Features
+* automatically apply default configurations in spring-boot for ZK 
+* zul view resolver
+* zk-specific properties for configuration
 
 ## Getting started
 
@@ -46,9 +57,15 @@ Shortcut configuration to enable a Spring MVC Controller with a @GetMapping for 
 The default zul-view-resolver config will prepend the the servlet mapping for ZK's update engine (default `/zkau`) and append the `.zul`-extension to locate the zul file in your application.
 
 ### zk.zul-view-resolver-*
-Defines a simple InternalViewResolver resolving view names to zul files inside the class-web package (not required but still possible for `war` packaging)
+Defines a simple InternalViewResolver resolving view names to zul files inside the class-web package (not required but still possible for `war` packaging).
 
-The defaults above have the following effect, given the get mapping:
+The default root path that the zul view resolver looks for is:
+* war packaging
+`src/main/webapp`
+* jar packaging
+`src/main/resources/web/`
+
+For example, given the get mapping:
 ```java
 	@GetMapping("/demo")
 	public String demo() {
@@ -56,7 +73,8 @@ The defaults above have the following effect, given the get mapping:
 	}
 ```
 Resolves to `/zkau/web/views/demo.zul`
-ZK's UpdateServlet will locate the file on the classpath e.g. in `src/main/resources/web/views/demo.zul`
+
+ZK's DHtmlUpdateServlet will locate the file on the classpath e.g. in `src/main/resources/web/views/demo.zul`
 A configured prefix e.g. `/myprefix` will be inserted before the view name: `/zkau/web[/myprefix]/views/demo.zul`
 
 ### zk.richlet-filter-mapping

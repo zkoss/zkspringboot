@@ -29,7 +29,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <zkspringboot.version>3.0.0-SNAPSHOT</zkspringboot.version>
+        <zkspringboot.version>3.0.0</zkspringboot.version>
         <springboot.version>3.0.0</springboot.version>
         <zk.version>9.6.0-jakarta</zk.version>
     </properties>

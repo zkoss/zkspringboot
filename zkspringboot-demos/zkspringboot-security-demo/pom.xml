@@ -13,8 +13,8 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<zk.version>9.6.0-jakarta</zk.version>
-		<zkspringboot.version>3.0.0</zkspringboot.version>
-		<springboot.version>3.0.0</springboot.version>
+		<zkspringboot.version>3.2.1</zkspringboot.version>
+		<springboot.version>3.2.1</springboot.version>
 		<zats.version>4.0.0</zats.version>
 		<junit.version>4.13.1</junit.version>
 	</properties>
@@ -61,6 +61,14 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.12.1</version>
+				<configuration>
+					<compilerArgument>-parameters</compilerArgument>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

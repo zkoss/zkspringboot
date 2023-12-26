@@ -25,8 +25,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
-		<zkspringboot.version>3.0.0</zkspringboot.version>
-		<springboot.version>3.0.0</springboot.version>
+		<zkspringboot.version>3.2.1</zkspringboot.version>
+		<springboot.version>3.2.1</springboot.version>
 		<zats.version>4.0.0</zats.version>
 		<junit.version>4.13.1</junit.version>
 	</properties>
@@ -58,6 +58,13 @@
 			<artifactId>zats-mimic</artifactId>
 			<version>${zats.version}</version>
 			<scope>test</scope>
+			<!-- slf4j-api conflicts with springboot's included one -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -65,13 +72,6 @@
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>1.2.3</version>
-			<scope>provided</scope>
 		</dependency>
 
 <!--		To run the main class org.zkoss.zkspringboot.demo.MinimalWarApplication during development -->

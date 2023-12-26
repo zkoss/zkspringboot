@@ -28,7 +28,7 @@ if [ "$oldVersion" == "" ] || [ "$newVersion" == "" ] ; then
 fi
 
 function upVer {
-	if [ "$isFL" == "FL" ] ; then
+	  if [ "$isFL" == "FL" ] ; then
         targetVersion=$newVersion"-SNAPSHOT"
     else 
         targetVersion=$newVersion

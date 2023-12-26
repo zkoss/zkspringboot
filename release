@@ -1,23 +1,24 @@
 #!/bin/bash
 
 maindir="$(pwd)"
-ver=$(head -1 version)
+ver=$(xmllint --xpath "/*[local-name()='project']/*[local-name()='version']/text()" zkspringboot-starter/pom.xml)
+ver=${ver//-SNAPSHOT/}
 stamp=$(date +%Y%m%d%H)
 target=$1
 if [ "$target" == "official" ] ; then
-	pver=$ver
+	finalVersion=$ver
 else
-	pver=$ver-FL-$stamp
+	finalVersion=$ver-FL-$stamp
 fi
 
-echo $pver
+echo $finalVersion
 
 set -e
 
-bash ./upVer $ver-SNAPSHOT $pver
+bash ./upVer $ver-SNAPSHOT $finalVersion
 
 mvn clean install -pl zkspringboot-starter -am
 mvn source:jar javadoc:jar repository:bundle-create --batch-mode -DskipTests -pl zkspringboot-starter -am
 
 cd $maindir
-bash ./prepare-upload.sh $pver
+bash ./prepare-upload.sh $finalVersion

@@ -3,6 +3,7 @@ package org.zkoss.zkspringboot.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -32,25 +33,45 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         // you need to disable spring CSRF to make ZK AU pass security filter
-        // ZK already sends a AJAX request with a built-in CSRF token,
+        // ZK already sends an AJAX request with a built-in CSRF token,
         // please refer to https://www.zkoss.org/wiki/ZK%20Developer's%20Reference/Security%20Tips/Cross-site%20Request%20Forgery
-        http.csrf().disable();
-        http.authorizeHttpRequests()
-            .requestMatchers(new AndRequestMatcher(new DispatcherTypeRequestMatcher(DispatcherType.ERROR), AntPathRequestMatcher.antMatcher("/error"))).permitAll() // allow default error dispatcher
-            .requestMatchers(new AndRequestMatcher(new DispatcherTypeRequestMatcher(DispatcherType.FORWARD), AntPathRequestMatcher.antMatcher(ZUL_FILES))).permitAll() // allow forwarded access to zul under class path web resource folder
-            .requestMatchers(AntPathRequestMatcher.antMatcher(ZUL_FILES)).denyAll() // block direct access to zul under class path web resource folder
-            .requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.GET, ZK_RESOURCES)).permitAll() // allow zk resources
-            .requestMatchers(RegexRequestMatcher.regexMatcher(HttpMethod.GET, REMOVE_DESKTOP_REGEX)).permitAll() // allow desktop cleanup
-            .requestMatchers(req -> "rmDesktop".equals(req.getParameter("cmd_0"))).permitAll() // allow desktop cleanup from ZATS
-            .requestMatchers(AntPathRequestMatcher.antMatcher("/login"), AntPathRequestMatcher.antMatcher("/logout")).permitAll() //permit the URL for login and logout
-            .requestMatchers(AntPathRequestMatcher.antMatcher("/secure")).hasRole("USER")
-            .requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.GET, "/favicon.ico")).permitAll() // allow favicon.ico
-            .anyRequest().authenticated() //enforce all requests to be authenticated
-            .and()
-            .formLogin()
-            .loginPage("/login").defaultSuccessUrl("/secure/main")
-            .and()
-            .logout().logoutUrl("/logout").logoutSuccessUrl("/");
+        //https://docs.spring.io/spring-security/reference/servlet/exploits/csrf.html#disable-csrf
+        http.csrf(httpSecurityCsrfConfigurer -> httpSecurityCsrfConfigurer.disable());
+        http.authorizeHttpRequests(matcherRegistry -> {
+            // allow default error dispatcher
+            matcherRegistry.requestMatchers(
+                    new AndRequestMatcher(
+                            new DispatcherTypeRequestMatcher(DispatcherType.ERROR),
+                            AntPathRequestMatcher.antMatcher("/error")
+                    )
+            ).permitAll();
+            // allow forwarded access to zul under class path web resource folder
+            matcherRegistry.requestMatchers(
+                    new AndRequestMatcher(
+                            new DispatcherTypeRequestMatcher(DispatcherType.FORWARD),
+                            AntPathRequestMatcher.antMatcher(ZUL_FILES)
+                    )
+            ).permitAll();
+
+            // block direct access to zul under class path web resource folder
+            matcherRegistry.requestMatchers(AntPathRequestMatcher.antMatcher(ZUL_FILES)).denyAll();
+            // allow zk resources requests
+            matcherRegistry.requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.GET, ZK_RESOURCES)).permitAll();
+            // allow desktop remove request
+            matcherRegistry.requestMatchers(RegexRequestMatcher.regexMatcher(HttpMethod.GET, REMOVE_DESKTOP_REGEX)).permitAll();
+            // allow desktop cleanup from ZATS
+            matcherRegistry.requestMatchers(req -> "rmDesktop".equals(req.getParameter("cmd_0"))).permitAll();
+            //permit the URL for login and logout
+            matcherRegistry.requestMatchers(AntPathRequestMatcher.antMatcher("/login"), AntPathRequestMatcher.antMatcher("/logout")).permitAll();
+            // configure secure pages
+            matcherRegistry.requestMatchers(AntPathRequestMatcher.antMatcher("/secure")).hasRole("USER");
+            // allow favicon.ico
+            matcherRegistry.requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.GET, "/favicon.ico")).permitAll();
+            //enforce all requests to be authenticated
+            matcherRegistry.anyRequest().authenticated();
+        })
+        .formLogin(formLoginConfigurer -> formLoginConfigurer.loginPage("/login").defaultSuccessUrl("/secure/main"))
+        .logout(logoutConfigurer -> logoutConfigurer.logoutUrl("/logout").logoutSuccessUrl("/"));
 
         return http.build();
     }

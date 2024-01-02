@@ -1,0 +1,18 @@
+<zk>
+    <window title="Error ${requestScope['javax.servlet.error.status_code']}"
+            width="50%" border="normal" mode="modal" closable="true">
+        <vlayout>
+            encounters an error: ${requestScope['javax.servlet.error.message']}
+            <hlayout style="margin-left:auto; margin-right:auto">
+                <button label="Continue" onClick="spaceOwner.detach()"/>
+                <button label="Reload" onClick="Executions.sendRedirect(null)"/>
+            </hlayout>
+        </vlayout>
+
+        <!-- optional: record the error for improving the app -->
+        <zscript>
+            org.zkoss.util.logging.Log.lookup("Fatal").error(
+            requestScope.get("javax.servlet.error.exception"));
+        </zscript>
+    </window>
+</zk>

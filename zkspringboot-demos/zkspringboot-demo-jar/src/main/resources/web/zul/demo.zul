@@ -3,4 +3,5 @@
 	<button id="demoButton" label="Submit" onClick='demoLabel.setValue("Hello " + demoInput.getValue() + "!")'/>
 	<separator/>
 	<label id="demoLabel"/>
+	<button label="Cause Error" onClick='throw new NullPointerException("Unknown Value")'/>
 </zk>

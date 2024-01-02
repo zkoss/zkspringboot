@@ -15,4 +15,8 @@
 		<richlet-name>ExampleRichlet</richlet-name>
 		<url-pattern>/richlet/example</url-pattern>
 	</richlet-mapping>
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>~./zul/error.zul</location>
+	</error-page>
 </zk>

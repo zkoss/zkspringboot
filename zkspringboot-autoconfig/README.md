@@ -1,5 +1,5 @@
 # Before Release
-run test case in zkspringboot-autoconfig, zkspringboot-demo-jar-zats, zkspringboot=security-demo-zats
+run test case in zkspringboot-autoconfig, zkspringboot-demo-jar-zats, zkspringboot-security-demo-zats
 
 # Release Process
 ## run `upVer` to change version string in all places to the target version

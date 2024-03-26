@@ -3,3 +3,4 @@ org.zkoss.zkspringboot.ZkHomepageConfiguration
 org.zkoss.zkspringboot.ZkWebMvcConfiguration
 org.zkoss.zkspringboot.ZkMaxAutoConfiguration
 org.zkoss.zkspringboot.ZkStatelessAutoConfiguration
+org.zkoss.zkspringboot.ZkClientBindStatelessAutoConfiguration

@@ -32,6 +32,9 @@ public class ZkProperties {
     private String statelessDispatcherRichletFilterMapping;
     private String statelessDispatcherRichletFilterBase;
 
+    private boolean clientMvvmListenerEnabled;
+    private boolean clientMvvmGloballyEnabled;
+
     public String getSpringbootPackaging() {
         return springbootPackaging;
     }
@@ -131,5 +134,21 @@ public class ZkProperties {
 
     public void setStatelessDispatcherRichletFilterBase(String statelessDispatcherRichletFilterBase) {
         this.statelessDispatcherRichletFilterBase = statelessDispatcherRichletFilterBase;
+    }
+
+    public boolean isClientMvvmListenerEnabled() {
+        return clientMvvmListenerEnabled;
+    }
+
+    public void setClientMvvmListenerEnabled(boolean clientMvvmListenerEnabled) {
+        this.clientMvvmListenerEnabled = clientMvvmListenerEnabled;
+    }
+
+    public boolean isClientMvvmGloballyEnabled() {
+        return clientMvvmGloballyEnabled;
+    }
+
+    public void setClientMvvmGloballyEnabled(boolean clientMvvmGloballyEnabled) {
+        this.clientMvvmGloballyEnabled = clientMvvmGloballyEnabled;
     }
 }

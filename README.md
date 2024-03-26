@@ -39,20 +39,22 @@ zk.servlet3-push-enabled=true
 zk.update-uri=/zkau
 ```
 
-property                                        | default  | example(s)      | description
------------------------------------------------ |----------|-----------------| -----------
-`zk.springboot-packaging`                       | `jar`    | `war`/`jar`     | package as jar or war file
-`zk.homepage`                                   | null     | `home`/`main`   | when set will setup a @GetMapping for "/" to return the configured view-name
-`zk.zul-view-resolver-enabled`                  | `true`   | `true`/`false`  | enable/disable InternalViewResolver for zul files
-`zk.zul-view-resolver-prefix`                   | empty    | `/zul`          | prefix prepended to a view name (i.e. a folder inside the web resource package on the classpath)
-`zk.zul-view-resolver-suffix`                   | `.zul`   | `.zul`/`.zhtml` | usually `.zul` does what you need
-`zk.richlet-filter-mapping`                     | null     | `/richlets/*`   | filter-mapping string as the basepath for richlets
-`zk.websockets-enabled=true`                    | `true`   | `true`/`false`  | enable/disable websockets (available in ZK-EE)
-`zk.servlet3-push-enabled=true`                 | `true`   | `true`/`false`  | enable/disable servlet3 CometServerPush (available in ZK-EE)
-`zk.update-uri`                                 | `/zkau`  | `/mypath`       | configure servlet path for ZK's Update Engine (rarely used)
-`zk.resource-uri`                               | null     | `/zkres`        | configure/enable separate servlet path for ZK's Resource Engine (since ZK 9.5.0)
-`zk.stateless-dispatcher-richlet-filter-mapping`| null     | `/*`            |  url-pattern for `org.zkoss.stateless.ui.http.DispatcherRichletFilter`
-`zk.stateless-dispatcher-richlet-filter-base`   | null     | `myrichlet`     |  base package of your `StatelessRichlet`
+property                                        | default | example(s)      | description
+----------------------------------------------- |---------|-----------------| -----------
+`zk.springboot-packaging`                       | `jar`   | `war`/`jar`     | package as jar or war file
+`zk.homepage`                                   | null    | `home`/`main`   | when set will setup a @GetMapping for "/" to return the configured view-name
+`zk.zul-view-resolver-enabled`                  | `true`  | `true`/`false`  | enable/disable InternalViewResolver for zul files
+`zk.zul-view-resolver-prefix`                   | empty   | `/zul`          | prefix prepended to a view name (i.e. a folder inside the web resource package on the classpath)
+`zk.zul-view-resolver-suffix`                   | `.zul`  | `.zul`/`.zhtml` | usually `.zul` does what you need
+`zk.richlet-filter-mapping`                     | null    | `/richlets/*`   | filter-mapping string as the basepath for richlets
+`zk.websockets-enabled=true`                    | `true`  | `true`/`false`  | enable/disable websockets (available in ZK-EE)
+`zk.servlet3-push-enabled=true`                 | `true`  | `true`/`false`  | enable/disable servlet3 CometServerPush (available in ZK-EE)
+`zk.update-uri`                                 | `/zkau` | `/mypath`       | configure servlet path for ZK's Update Engine (rarely used)
+`zk.resource-uri`                               | null    | `/zkres`        | configure/enable separate servlet path for ZK's Resource Engine (since ZK 9.5.0)
+`zk.stateless-dispatcher-richlet-filter-mapping`| null    | `/*`            | url-pattern for `org.zkoss.stateless.ui.http.DispatcherRichletFilter`
+`zk.stateless-dispatcher-richlet-filter-base`   | null    | `myrichlet`     | base package of your `StatelessRichlet`
+`zk.client-mvvm-listener-enabled`               | `false` | `true`          | if `true`, add a listener `org.zkoss.clientbind.BinderPropertiesRenderer` for client mvvm
+`zk.client-mvvm-globally-enabled`               | `false` | `true`          | if `true`, set the library property `org.zkoss.bind.defaultComposer.class` with `org.zkoss.clientbind.ClientBindComposer`. This enables client MVVM on the whole application
 
 ### zk.homepage
 Shortcut configuration to enable a Spring MVC Controller with a @GetMapping for the root path '/' returning the configured view name. (disabled by default).

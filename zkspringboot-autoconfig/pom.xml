@@ -106,7 +106,13 @@
 			<scope>provided</scope>
 			<optional>true</optional>
 		</dependency>
-
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>client-bind</artifactId>
+			<version>${zk.version}</version>
+			<scope>provided</scope>
+			<optional>true</optional>
+		</dependency>
 		<dependency>
 			<groupId>org.zkoss.zats</groupId>
 			<artifactId>zats-mimic</artifactId>

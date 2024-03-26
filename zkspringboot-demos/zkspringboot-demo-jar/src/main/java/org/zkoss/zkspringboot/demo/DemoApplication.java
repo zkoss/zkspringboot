@@ -17,6 +17,11 @@ public class DemoApplication {
 		return "mvvm";
 	}
 
+	@GetMapping("/clientmvvm")
+	public String clientMvvm() {
+		return "client-mvvm";
+	}
+
 	@GetMapping("/resources")
 	public String resourcesExample() {
 		return "resources";

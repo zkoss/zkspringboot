@@ -1,0 +1,59 @@
+<zk>
+    client mvvm demo page
+
+    <div viewModel="@id('vm')@init('org.zkoss.zkspringboot.demo.viewmodel.ClearItemsVM')" height="100%">
+        <div sclass="area" style="margin-bottom: 5px">
+            <button label="Fill" onClick="@command('fill')"/>
+            <button label="Clear" onClick="@command('clear')"/>
+        </div>
+        <custom-attributes org.zkoss.zul.listbox.rod="true"/>
+        <listbox model="@init(vm.model)" vflex="1">
+            <listhead>
+                <listheader label="h1"/>
+                <listheader label="h1"/>
+                <listheader label="h1"/>
+                <listheader label="h1"/>
+                <listheader label="h1"/>
+                <listheader label="h1"/>
+                <listheader label="h1"/>
+                <listheader label="h1"/>
+                <listheader label="h1"/>
+                <listheader label="h1"/>
+            </listhead>
+            <template name="model">
+                <listitem>
+                    <listcell>
+                        <label value="@init(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <label value="@init(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <label value="@init(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <label value="@init(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <label value="@init(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <label value="@init(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <label value="@init(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <label value="@init(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <label value="@init(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <label value="@init(each)" width="85px"/>
+                    </listcell>
+                </listitem>
+            </template>
+        </listbox>
+    </div>
+</zk>

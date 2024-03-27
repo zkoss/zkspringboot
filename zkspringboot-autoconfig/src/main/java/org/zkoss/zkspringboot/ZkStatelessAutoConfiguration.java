@@ -9,6 +9,9 @@ import org.zkoss.stateless.ui.http.DispatcherRichletFilter;
 
 import java.util.*;
 
+/**
+ * @since 3.2.3
+ */
 @Configuration
 @EnableConfigurationProperties({ZkProperties.class})
 @ConditionalOnClass(org.zkoss.stateless.Version.class)

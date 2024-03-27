@@ -9,6 +9,9 @@ import org.zkoss.clientbind.BinderPropertiesRenderer;
 import org.zkoss.lang.Library;
 import org.zkoss.zk.ui.WebApps;
 
+/**
+ * @since 3.2.3
+ */
 @Configuration
 @EnableConfigurationProperties({ZkProperties.class})
 @ConditionalOnClass(org.zkoss.clientbind.Version.class)

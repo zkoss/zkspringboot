@@ -51,10 +51,10 @@ property                                        | default | example(s)      | de
 `zk.servlet3-push-enabled=true`                 | `true`  | `true`/`false`  | enable/disable servlet3 CometServerPush (available in ZK-EE)
 `zk.update-uri`                                 | `/zkau` | `/mypath`       | configure servlet path for ZK's Update Engine (rarely used)
 `zk.resource-uri`                               | null    | `/zkres`        | configure/enable separate servlet path for ZK's Resource Engine (since ZK 9.5.0)
-`zk.stateless-dispatcher-richlet-filter-mapping`| null    | `/*`            | url-pattern for `org.zkoss.stateless.ui.http.DispatcherRichletFilter`
-`zk.stateless-dispatcher-richlet-filter-base`   | null    | `myrichlet`     | base package of your `StatelessRichlet`
-`zk.client-mvvm-listener-enabled`               | `false` | `true`          | if `true`, add a listener `org.zkoss.clientbind.BinderPropertiesRenderer` for client mvvm
-`zk.client-mvvm-globally-enabled`               | `false` | `true`          | if `true`, set the library property `org.zkoss.bind.defaultComposer.class` with `org.zkoss.clientbind.ClientBindComposer`. This enables client MVVM on the whole application
+`zk.stateless-dispatcher-richlet-filter-mapping`| null    | `/*`            | url-pattern for `org.zkoss.stateless.ui.http.DispatcherRichletFilter`. since 3.2.3
+`zk.stateless-dispatcher-richlet-filter-base`   | null    | `myrichlet`     | base package of your `StatelessRichlet`. since 3.2.3
+`zk.client-mvvm-listener-enabled`               | `false` | `true`          | if `true`, add a listener `org.zkoss.clientbind.BinderPropertiesRenderer` for client mvvm. since 3.2.3
+`zk.client-mvvm-globally-enabled`               | `false` | `true`          | if `true`, set the library property `org.zkoss.bind.defaultComposer.class` with `org.zkoss.clientbind.ClientBindComposer`. This enables client MVVM on the whole application. since 3.2.3
 
 ### zk.homepage
 Shortcut configuration to enable a Spring MVC Controller with a @GetMapping for the root path '/' returning the configured view name. (disabled by default).

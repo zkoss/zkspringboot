@@ -48,7 +48,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>17</java.version>
-		<zk.version>9.6.0-jakarta</zk.version>
+		<zk.version>10.0.0-jakarta</zk.version>
 	</properties>
 
 	<dependencies>

@@ -15,15 +15,15 @@ import org.zkoss.zk.ui.WebApps;
 @Configuration
 @EnableConfigurationProperties({ZkProperties.class})
 @ConditionalOnClass(org.zkoss.clientbind.Version.class)
-public class ZkClientBindStatelessAutoConfiguration {
+public class ZkClientBindAutoConfiguration {
 
     private final ZkProperties zkProperties;
 
-    public ZkClientBindStatelessAutoConfiguration(ZkProperties zkProperties) {
+    public ZkClientBindAutoConfiguration(ZkProperties zkProperties) {
         this.zkProperties = zkProperties;
     }
 
-    private static final Logger logger = LoggerFactory.getLogger(ZkClientBindStatelessAutoConfiguration.class);
+    private static final Logger logger = LoggerFactory.getLogger(ZkClientBindAutoConfiguration.class);
 
     protected void binderPropertiesRenderer() {
         if (!zkProperties.isClientMvvmListenerEnabled())

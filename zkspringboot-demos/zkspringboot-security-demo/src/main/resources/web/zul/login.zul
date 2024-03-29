@@ -6,8 +6,10 @@
                 <column width="280px" />
             </columns>
             <rows>
-                <row spans="2" align="center">
+                <row align="center">
+                    <cell colspan="2">
                     <label value="LOGIN"/>
+                    </cell>
                 </row>
                 <row>
                     <label value="User :"/>
@@ -15,10 +17,12 @@
                 <row>
                     <label value="Password :"/>
                     <textbox type="password" name="password" value="password"/> </row>
-                <row spans="2" align="right">
+                <row align="right">
+                    <cell colspan="2">
                     <hlayout>
                     <button type="reset" label="Reset" /> <button type="submit" label="Login" />
                     </hlayout>
+                    </cell>
                 </row>
             </rows>
         </grid>

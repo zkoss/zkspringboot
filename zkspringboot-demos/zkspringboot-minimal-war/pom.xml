@@ -37,22 +37,24 @@
 			<artifactId>zkspringboot-starter</artifactId>
 			<version>${zkspringboot.version}</version>
 			<type>pom</type>
-<!--			excluded (conflicts with ZATS)-->
-<!--			<exclusions>-->
-<!--				<exclusion>-->
-<!--					<groupId>org.springframework.boot</groupId>-->
-<!--					<artifactId>spring-boot-starter-tomcat</artifactId>-->
-<!--				</exclusion>-->
-<!--			</exclusions>-->
 		</dependency>
-
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>4.0.1</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.70</version>
+		</dependency>
 
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.13.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.zkoss.zats</groupId>
 			<artifactId>zats-mimic-ext96</artifactId>

@@ -25,7 +25,7 @@ public class MinimalPageTest {
 
 	private DesktopAgent desktopAgent;
 
-//	@Test
+	@Test
 	public void testDemoPage() {
 		desktopAgent = client.connect("/");
 		assertNotNull(demoButton());

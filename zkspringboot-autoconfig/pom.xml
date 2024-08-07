@@ -4,7 +4,7 @@
 	<groupId>org.zkoss.zkspringboot</groupId>
 	<artifactId>zkspringboot-autoconfig</artifactId>
 	<packaging>jar</packaging>
-	<version>3.2.3</version>
+	<version>3.2.6-SNAPSHOT</version>
 	<name>zkspringboot-autoconfig</name>
 	<description>zkspringboot-autoconfig</description>
 	<url>http://www.zkoss.org</url>
@@ -47,7 +47,7 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<springboot.version>3.2.3</springboot.version>
+		<springboot.version>3.2.6</springboot.version>
 		<zk.version>10.0.0-jakarta</zk.version>
 		<zats.version>4.0.0</zats.version>
 		<junit.version>4.13.1</junit.version>

@@ -10,5 +10,5 @@ run test case in zkspringboot-autoconfig, zkspringboot-demo-jar-zats, zkspringbo
 * release freshly: run `release`
 * release official: `release official`
 (it removes the `-SNAPSHOT`)
-## manually upload to fileserver
+## manually upload `*-bundle.jar` under `/target` to fileserver
 ## publish to maven CE repository with [PBFUM](http://jenkins2/view/All/job/PBFUM/)

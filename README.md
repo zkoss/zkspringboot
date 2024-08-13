@@ -20,6 +20,7 @@
 * Place your zul files below [src/main/resources/web](zkspringboot-demos/zkspringboot-minimal-jar/src/main/resources/web/zul)
 * Create a spring controller or define a `zk.homepage` parameter in [application.properties](zkspringboot-demos/zkspringboot-minimal-jar/src/main/resources/application.properties)
 * or just have a look into the [demos](zkspringboot-demos)
+* when using `jar` packaging, including a file is different, please see [Application_structure](https://www.zkoss.org/wiki/ZK_Installation_Guide/Quick_Start/Create_and_Run_Your_First_ZK_Application_with_Spring_Boot#Application_structure)
 
 ## Configuration options (for Spring Boot style application.properties)
 

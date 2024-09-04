@@ -42,7 +42,7 @@ public class ZkAutoConfiguration {
 		ServletRegistrationBean<DHtmlLayoutServlet> reg = new ServletRegistrationBean<>(new DHtmlLayoutServlet(), mappings);
 		reg.setInitParameters(Collections.singletonMap("update-uri", zkProperties.getUpdateUri()));
 		if (zkProperties.getResourceUri() != null) {
-			reg.setInitParameters(Collections.singletonMap("resource-uri", zkProperties.getResourceUri()));
+			reg.addInitParameter("resource-uri", zkProperties.getResourceUri());
 		}
 		reg.setLoadOnStartup(0);
 		logger.info("ZK-Springboot: ServletRegistrationBean for DHtmlLayoutServlet with url pattern " + Arrays.asList(mappings));

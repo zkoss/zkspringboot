@@ -67,10 +67,11 @@ public class WebSecurityConfig {
             matcherRegistry.requestMatchers(AntPathRequestMatcher.antMatcher("/secure")).hasRole("USER");
             // allow favicon.ico
             matcherRegistry.requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.GET, "/favicon.ico")).permitAll();
-            //enforce all requests to be authenticated
+            //enforce all requests to be authenticated, just permit some paths configured below
             matcherRegistry.anyRequest().authenticated();
         })
-        .formLogin(formLoginConfigurer -> formLoginConfigurer.loginPage("/login").defaultSuccessUrl("/secure/main"))
+        .formLogin(formLoginConfigurer -> formLoginConfigurer.loginPage("/login")
+                .defaultSuccessUrl("/secure/main", true)) //specify true, so spring won't redirect a user to his previously requested page
         .logout(logoutConfigurer -> logoutConfigurer.logoutUrl("/logout").logoutSuccessUrl("/"));
 
         return http.build();

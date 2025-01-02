@@ -104,11 +104,11 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>${springboot.version}</version>
 				<!-- apply below to stop breakpoints -->
-				<configuration>
-					<jvmArguments>
-						-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005
-					</jvmArguments>
-				</configuration>
+<!--				<configuration>-->
+<!--					<jvmArguments>-->
+<!--						-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005-->
+<!--					</jvmArguments>-->
+<!--				</configuration>-->
 			</plugin>
 			<!-- Could not initialize class org.apache.maven.plugin.war.util.WebappStructureSerializer -->
 			<plugin>

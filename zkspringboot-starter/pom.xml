@@ -4,7 +4,7 @@
 	<groupId>org.zkoss.zkspringboot</groupId>
 	<artifactId>zkspringboot-starter</artifactId>
 	<packaging>pom</packaging>
-	<version>3.2.6.1</version>
+	<version>3.2.7-SNAPSHOT</version>
 	<name>zkspringboot-starter</name>
 	<description>zkspringboot-starter</description>
 	<url>http://www.zkoss.org</url>
@@ -28,7 +28,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.6</version>
+		<version>3.2.7</version>
 		<relativePath/>
 	</parent>
 
@@ -67,7 +67,6 @@
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkbind</artifactId>
 			<version>${zk.version}</version>
-			<scope>provided</scope>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>

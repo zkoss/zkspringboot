@@ -15,3 +15,9 @@ run test case in zkspringboot-autoconfig, zkspringboot-demo-jar-zats, zkspringbo
 (it removes the `-SNAPSHOT`)
 ## manually upload `*-bundle.jar` under `/target` to fileserver
 ## publish to maven CE repository with [PBFUM](http://jenkins2/view/All/job/PBFUM/)
+
+# Architecture Decision Record
+## a starter should help devs start with a minimal setup
+* This starter project should include a zk CE dependency as compile scope by default, so devs can start a new project with this starter dependency without adding any zk dependency by default. If no default zk is included, people tend to forget to include a ZK dependency.
+* If devs don't want this default zk version, they can override them.
+* put EE dependencies as optional, so devs can override with desired ZK version easily.

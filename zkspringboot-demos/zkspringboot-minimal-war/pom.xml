@@ -26,8 +26,8 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<zk.version>10.0.0-jakarta</zk.version>
-		<zkspringboot.version>3.2.6</zkspringboot.version>
-		<springboot.version>3.2.6</springboot.version>
+		<zkspringboot.version>3.2.7</zkspringboot.version>
+		<springboot.version>3.2.7</springboot.version>
 		<zats.version>4.0.0</zats.version>
 		<junit.version>4.13.1</junit.version>
 	</properties>
@@ -45,11 +45,6 @@
 <!--					<artifactId>spring-boot-starter-tomcat</artifactId>-->
 <!--				</exclusion>-->
 <!--			</exclusions>-->
-		</dependency>
-		<dependency>
-			<groupId>org.zkoss.zk</groupId>
-			<artifactId>zkbind</artifactId>
-			<version>${zk.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>

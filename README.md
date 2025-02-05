@@ -44,8 +44,8 @@ property                                        | default | example(s)      | de
 ----------------------------------------------- |---------|-----------------| -----------
 `zk.springboot-packaging`                       | `jar`   | `war`/`jar`     | package as jar or war file
 `zk.homepage`                                   | null    | `home`/`main`   | when set will setup a @GetMapping for "/" to return the configured view-name
-`zk.zul-view-resolver-enabled`                  | `true`  | `true`/`false`  | enable/disable InternalViewResolver for zul files
 `zk.zul-view-resolver-prefix`                   | empty   | `/zul`          | prefix prepended to a view name (i.e. a folder inside the web resource package on the classpath)
+`zk.zul-view-resolver-enabled`                  | `true`  | `true`/`false`  | enable/disable InternalViewResolver for zul files. See details below. 
 `zk.zul-view-resolver-suffix`                   | `.zul`  | `.zul`/`.zhtml` | usually `.zul` does what you need
 `zk.richlet-filter-mapping`                     | null    | `/richlets/*`   | filter-mapping string as the basepath for richlets
 `zk.websockets-enabled=true`                    | `true`  | `true`/`false`  | enable/disable websockets (available in ZK-EE)
@@ -68,7 +68,7 @@ The default root path that the zul view resolver looks for is:
 * war packaging
 `src/main/webapp`
 * jar packaging
-`src/main/resources/web/`
+`src/main/resources/web/` (it's [zk's classpath web resource path](https://www.zkoss.org/wiki/ZK_Developer%27s_Reference/UI_Composing/ZUML/Include_a_Page#Classpath_Web_Resource_Path))
 
 For example, given the get mapping:
 ```java
@@ -109,4 +109,10 @@ See [Triggering a restart](https://docs.spring.io/spring-boot/docs/2.4.4/referen
 
 
 ## Debug Spring Boot Application
-Because a breakpoint doesn't stop when running with Maven `springboot:run`, you can run an application with `@SpringBootApplication` class as a Java application in debug mode. 
+### jar
+Because a breakpoint doesn't stop when running with Maven `springboot:run`, you can run an application with `@SpringBootApplication` class as a Java application in debug mode.
+### war
+1. Enable debug mode
+
+`mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=*:5005"`
+2. Attach a Debugger in Your IDE

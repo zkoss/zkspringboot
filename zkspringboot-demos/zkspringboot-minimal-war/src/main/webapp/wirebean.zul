@@ -1,0 +1,7 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver" ?>
+<!-- see more examples at https://github.com/zkoss/zkbooks/tree/master/developersreference/integration.spring-->
+<zk>
+	<div apply="${myComposer}">
+		<label id="msg"/>
+	</div>
+</zk>

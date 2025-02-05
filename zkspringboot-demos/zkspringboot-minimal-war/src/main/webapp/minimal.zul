@@ -3,4 +3,6 @@
 	<button id="demoButton" label="Submit" onClick='demoLabel.setValue("Hello " + demoInput.getValue() + "!")'/>
 	<separator/>
 	<label id="demoLabel"/>
+	Example of wiring Spring bean:
+	<include src="wirebean.zul"/>
 </zk>

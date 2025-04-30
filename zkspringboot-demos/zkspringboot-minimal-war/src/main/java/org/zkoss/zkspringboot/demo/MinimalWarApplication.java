@@ -33,4 +33,9 @@ public class MinimalWarApplication extends SpringBootServletInitializer {
 	public String index(){
 		return "/index";
 	}
+
+	@GetMapping("/wirebean")
+	public String wirebean(){
+		return "/wirebean";
+	}
 }

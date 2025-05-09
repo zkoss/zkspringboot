@@ -116,3 +116,5 @@ Because a breakpoint doesn't stop when running with Maven `springboot:run`, you 
 
 `mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=*:5005"`
 2. Attach a Debugger in Your IDE
+
+# [Release Note](RELEASE_NOTE.md)

@@ -34,9 +34,10 @@ public class ZkAutoConfiguration {
 		this.zkProperties = zkProperties;
 	}
 
-	// original zk layout servlet (only for war files)
+	/**
+	 * Even jar packaging doesn't call DHtmlLayoutServlet but its init() method perform some tricky things. We need to invoke to keep download behavior working as before. Related to ZK-1619.
+	 */
 	@Bean
-	@ConditionalOnProperty(prefix = "zk", name = "springboot-packaging", havingValue = "war", matchIfMissing = false)
 	public ServletRegistrationBean<DHtmlLayoutServlet> dHtmlLayoutServlet() {
 		final String[] mappings = { "*.zul", "*.zhtml" };
 		ServletRegistrationBean<DHtmlLayoutServlet> reg = new ServletRegistrationBean<>(new DHtmlLayoutServlet(), mappings);

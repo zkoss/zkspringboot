@@ -1,4 +1,17 @@
 # ZK - Spring Boot Starter
+
+ZK Spring Boot Starter is an integration between ZK and Spring Boot, making it easy for developers to use ZK within Spring Boot applications.
+
+About ZK
+ZK is a highly productive open source Java framework for building amazing enterprise web and mobile applications.
+
+ZK Resources
+* [Core Framework](https://github.com/zkoss/zk)
+* [Documentation](https://www.zkoss.org/documentation)
+* [ZK Website](https://zkoss.org)
+
+About Spring boot starter:
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 * [zkspringboot-starter](zkspringboot-starter) : the starter project that helps you use spring-boot with zk easily.
@@ -116,5 +129,6 @@ Because a breakpoint doesn't stop when running with Maven `springboot:run`, you 
 
 `mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=*:5005"`
 2. Attach a Debugger in Your IDE
+
 
 # [Release Note](RELEASE_NOTE.md)

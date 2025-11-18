@@ -20,6 +20,7 @@
                 <row align="right">
                     <cell colspan="2">
                     <hlayout>
+                    <n:input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <button type="reset" label="Reset" /> <button type="submit" label="Login" />
                     </hlayout>
                     </cell>

@@ -8,4 +8,7 @@
         <session-timeout>300</session-timeout>
         <timeout-uri>/timeout</timeout-uri>
     </session-config>
+    <listener>
+	    <listener-class>org.zkoss.zkspringboot.security.SpringSecurityCsrfInitiator</listener-class>
+	</listener>
 </zk>

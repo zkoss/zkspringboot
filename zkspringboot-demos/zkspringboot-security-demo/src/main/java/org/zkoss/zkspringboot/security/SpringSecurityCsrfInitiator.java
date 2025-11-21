@@ -30,7 +30,7 @@ public class SpringSecurityCsrfInitiator implements Initiator, InitiatorExt {
 		((PageCtrl) page).addAfterHeadTags(metas);
 		//loads the JS override script
 		Script jsScript = new Script();
-		jsScript.setSrc("~./static/js/csrf-header-override.js");
+		jsScript.setSrc("~./static/js/csrf-header-override.js"); //replace with location of your js script
 		page.getFirstRoot().appendChild(jsScript);
 	}
 

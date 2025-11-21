@@ -32,12 +32,17 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        // you need to disable spring CSRF to make ZK AU pass security filter
-        // ZK already sends an AJAX request with a built-in CSRF token,
-        // please refer to https://www.zkoss.org/wiki/ZK%20Developer's%20Reference/Security%20Tips/Cross-site%20Request%20Forgery
-        //https://docs.spring.io/spring-security/reference/servlet/exploits/csrf.html#disable-csrf
-        //http.csrf(httpSecurityCsrfConfigurer -> httpSecurityCsrfConfigurer.disable());
-        http.csrf(csrf -> csrf.csrfTokenRepository
+    	//before applying extra headers:
+        //    you need to disable spring CSRF to make ZK AU pass security filter
+        //    ZK already sends an AJAX request with a built-in CSRF token,
+        //    please refer to https://www.zkoss.org/wiki/ZK%20Developer's%20Reference/Security%20Tips/Cross-site%20Request%20Forgery
+        //    https://docs.spring.io/spring-security/reference/servlet/exploits/csrf.html#disable-csrf
+        //    http.csrf(httpSecurityCsrfConfigurer -> httpSecurityCsrfConfigurer.disable());
+        //after applying extra headers:
+    	//    Enable CSRF protection in spring security, using the initiator
+    	//    /zkspringboot-security-demo/src/main/java/org/zkoss/zkspringboot/security/SpringSecurityCsrfInitiator.java
+    	//    to include the header and values to ZK's requests after page load
+    	http.csrf(csrf -> csrf.csrfTokenRepository
                 (CookieCsrfTokenRepository.withHttpOnlyFalse())
         );
         http.authorizeHttpRequests(matcherRegistry -> {

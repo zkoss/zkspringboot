@@ -109,6 +109,14 @@
 <!--						-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005-->
 <!--					</jvmArguments>-->
 <!--				</configuration>-->
+				<executions>
+					<execution>
+						<!-- to produce a runnable war -->
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<!-- Could not initialize class org.apache.maven.plugin.war.util.WebappStructureSerializer -->
 			<plugin>

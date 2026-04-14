@@ -21,8 +21,8 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<zk.version>10.0.0-jakarta</zk.version>
-		<zkspringboot.version>3.2.7.1</zkspringboot.version>
-		<springboot.version>3.2.7</springboot.version>
+		<zkspringboot.version>3.5.13</zkspringboot.version>
+		<springboot.version>3.5.13</springboot.version>
 	</properties>
 
 	<dependencies>

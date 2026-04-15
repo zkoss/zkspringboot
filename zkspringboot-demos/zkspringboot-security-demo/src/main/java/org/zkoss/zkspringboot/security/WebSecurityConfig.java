@@ -42,8 +42,11 @@ public class WebSecurityConfig {
     	//    Enable CSRF protection in spring security, using the initiator
     	//    /zkspringboot-security-demo/src/main/java/org/zkoss/zkspringboot/security/SpringSecurityCsrfInitiator.java
     	//    to include the header and values to ZK's requests after page load
-    	http.csrf(csrf -> csrf.csrfTokenRepository
-                (CookieCsrfTokenRepository.withHttpOnlyFalse())
+    	http.csrf(csrf -> csrf
+                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                // rmDesktop is a ZK desktop cleanup request (e.g. from ZATS); it carries no
+                // user-controlled state, so exempting it from Spring CSRF is safe.
+                .ignoringRequestMatchers(req -> "rmDesktop".equals(req.getParameter("cmd_0")))
         );
         http.authorizeHttpRequests(matcherRegistry -> {
             // allow default error dispatcher

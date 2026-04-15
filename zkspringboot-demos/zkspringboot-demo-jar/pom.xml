@@ -29,8 +29,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <zkspringboot.version>3.5.13</zkspringboot.version>
-        <springboot.version>3.5.13</springboot.version>
+        <zkspringboot.version>4.0.5-SNAPSHOT</zkspringboot.version>
+        <springboot.version>4.0.5</springboot.version>
         <zk.version>10.0.0-jakarta</zk.version>
     </properties>
 
@@ -80,6 +80,20 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- Spring Boot 4: spring-boot-starter-test for MockMvc tests -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${springboot.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Spring Boot 4: @AutoConfigureMockMvc moved to spring-boot-webmvc-test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-webmvc-test</artifactId>
+            <version>${springboot.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -92,6 +106,12 @@
                         <goals>
                             <goal>repackage</goal>
                         </goals>
+                        <configuration>
+                            <!-- Keep the original thin JAR as the main artifact so ZATS tests
+                                 can load application classes via a standard ClassLoader.
+                                 The runnable fat JAR is attached as zkspringboot-demo-jar-exec.jar -->
+                            <classifier>exec</classifier>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

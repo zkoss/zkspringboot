@@ -4,7 +4,7 @@
 	<groupId>org.zkoss.zkspringboot</groupId>
 	<artifactId>zkspringboot-starter</artifactId>
 	<packaging>pom</packaging>
-	<version>3.5.13</version>
+	<version>4.0.5-SNAPSHOT</version>
 	<name>zkspringboot-starter</name>
 	<description>zkspringboot-starter</description>
 	<url>http://www.zkoss.org</url>
@@ -28,7 +28,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.5.13</version>
+		<version>4.0.5</version>
 		<relativePath/>
 	</parent>
 
@@ -79,13 +79,18 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 		</dependency>
+		<!-- Jackson 3 compat artifacts: pin versions explicitly so consumers that do not
+		     inherit spring-boot-starter-parent still get the correct compat JARs.
+		     These provide com.fasterxml.jackson.* for Spring Boot 4 / Jackson 3 compatibility. -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
+			<version>2.21.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
+			<version>2.21</version>
 		</dependency>
 	</dependencies>
 </project>

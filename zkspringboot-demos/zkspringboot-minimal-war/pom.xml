@@ -26,9 +26,9 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<zk.version>10.0.0-jakarta</zk.version>
-		<zkspringboot.version>3.5.13</zkspringboot.version>
-		<springboot.version>3.5.13</springboot.version>
-		<zats.version>4.0.0</zats.version>
+		<zkspringboot.version>4.0.5-SNAPSHOT</zkspringboot.version>
+		<springboot.version>4.0.5</springboot.version>
+		<zats.version>10.2.1-jakarta</zats.version>
 		<junit.version>4.13.1</junit.version>
 	</properties>
 
@@ -38,13 +38,15 @@
 			<artifactId>zkspringboot-starter</artifactId>
 			<version>${zkspringboot.version}</version>
 			<type>pom</type>
-<!--			excluded (conflicts with ZATS)-->
-<!--			<exclusions>-->
-<!--				<exclusion>-->
-<!--					<groupId>org.springframework.boot</groupId>-->
-<!--					<artifactId>spring-boot-starter-tomcat</artifactId>-->
-<!--				</exclusion>-->
-<!--			</exclusions>-->
+			<exclusions>
+				<!-- Exclude Tomcat WebSocket: in a WAR deployment the container provides WebSocket.
+				     Keeping tomcat-embed-websocket on the classpath conflicts with ZATS's embedded
+				     Jetty EE10 WebSocket container (ClassCastException in JakartaWebSocketServletContainerInitializer). -->
+				<exclusion>
+					<groupId>org.apache.tomcat.embed</groupId>
+					<artifactId>tomcat-embed-websocket</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>

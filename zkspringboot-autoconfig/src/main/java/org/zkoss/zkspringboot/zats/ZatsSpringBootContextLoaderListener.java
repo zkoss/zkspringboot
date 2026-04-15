@@ -46,10 +46,14 @@ public class ZatsSpringBootContextLoaderListener extends ContextLoaderListener {
 		@Override
 		protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
 			try {
-				Class<?> configClass = Class.forName(contextConfigLocation);
+				// Use the thread context ClassLoader (set by Jetty to the WebApp ClassLoader)
+				// rather than the caller's ClassLoader, so application classes are found
+				// correctly in both Jetty EE9/EE10 embedded environments.
+				ClassLoader cl = Thread.currentThread().getContextClassLoader();
+				Class<?> configClass = Class.forName(contextConfigLocation, true, cl);
 				return builder.sources(configClass);
 			} catch (ClassNotFoundException e) {
-				throw new IllegalArgumentException("couldn't initialize contextConfigLocation");
+				throw new IllegalArgumentException("couldn't initialize contextConfigLocation: " + contextConfigLocation, e);
 			}
 		}
 	}

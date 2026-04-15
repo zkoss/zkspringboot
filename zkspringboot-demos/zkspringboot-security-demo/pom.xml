@@ -12,7 +12,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
-		<zkspringboot.version>3.5.13-SNAPSHOT</zkspringboot.version>
+		<zkspringboot.version>3.5.13</zkspringboot.version>
 		<springboot.version>3.5.13</springboot.version>
 		<zk.version>10.2.1-jakarta</zk.version>
 		<zats.version>4.0.0</zats.version>

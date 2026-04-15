@@ -1,3 +1,12 @@
+# 3.5.13
+## Features
+* Upgrade Spring Boot to 3.5.13
+* Spring Security demo: add CSRF protection for ZK AU requests using `CookieCsrfTokenRepository` and `SpringSecurityCsrfInitiator`
+  * A ZK page initiator (`SpringSecurityCsrfInitiator`) injects the Spring Security CSRF token into page meta tags and loads a JS helper (`csrf-header-override.js`) that patches ZK's AU engine to include the `X-XSRF-TOKEN` header on every AU request
+  * The login form now includes a hidden `_csrf` field for standard form-based login
+* Spring Security demo: exempt `rmDesktop` AU requests from Spring CSRF (ZK handles desktop cleanup internally)
+* `zkspringboot-minimal-war`: configure the Spring Boot Maven plugin `repackage` goal to produce a self-contained runnable WAR
+
 # 3.2.7.1
 
 ## Bug Fixes

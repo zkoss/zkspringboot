@@ -9,7 +9,7 @@
 			<label value="WAR-style path resolved via ServletContext.getResource(). In JAR packaging, place the file under META-INF/resources/WEB-INF/ so the servlet container can serve it."/>
 			<hlayout>
 				<label value="moduleA.greeting: "/>
-				<label id="modulaAGreeting" value="${labels.moduleA.greeting}" style="font-weight:bold"/>
+				<label id="moduleAGreeting" value="${labels.moduleA.greeting}" style="font-weight:bold"/>
 			</hlayout>
 			<hlayout>
 				<label value="moduleA.description: "/>

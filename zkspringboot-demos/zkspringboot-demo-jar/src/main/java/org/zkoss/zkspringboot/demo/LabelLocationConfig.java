@@ -51,7 +51,7 @@ public class LabelLocationConfig {
                 String[] locations = webManager.getWebApp().getConfiguration().getLabelLocations();
                 if (locations.length == 0) return;
 
-                removeServletLabelLocators(locations);
+                removeServletLabelLocators();
 
                 for (String loc : locations) {
                     if (ClasspathLabelLocator.handles(loc)) {
@@ -64,7 +64,7 @@ public class LabelLocationConfig {
     }
 
     @SuppressWarnings("unchecked")
-    private void removeServletLabelLocators(String[] locations) {
+    private void removeServletLabelLocators() {
         try {
             Field loaderField = Labels.class.getDeclaredField("_loader");
             loaderField.setAccessible(true);
@@ -74,18 +74,24 @@ public class LabelLocationConfig {
             locatorsField.setAccessible(true);
             Set<Object> locators = (Set<Object>) locatorsField.get(loader);
 
-            locators.removeIf(loc -> {
+            // Cache _path field before iterating to avoid repeated getDeclaredField per element
+            Field pathField = null;
+            for (Object loc : locators.toArray()) {
                 if (!"org.zkoss.web.util.resource.ServletLabelLocator".equals(loc.getClass().getName()))
-                    return false;
+                    continue;
                 try {
-                    Field pathField = loc.getClass().getDeclaredField("_path");
-                    pathField.setAccessible(true);
+                    if (pathField == null) {
+                        pathField = loc.getClass().getDeclaredField("_path");
+                        pathField.setAccessible(true);
+                    }
                     String path = (String) pathField.get(loc);
-                    return ClasspathLabelLocator.handles(path);
+                    if (ClasspathLabelLocator.handles(path)) {
+                        locators.remove(loc);
+                    }
                 } catch (Exception e) {
-                    return false;
+                    // skip this locator
                 }
-            });
+            }
         } catch (Exception e) {
             logger.warn("LabelLocationConfig: could not remove ServletLabelLocators: {}", e.getMessage());
         }
@@ -105,13 +111,12 @@ public class LabelLocationConfig {
         static final String TILDE_PREFIX = "~./";
 
         private final String originalPath;
-        private final String resourcePath; // normalized, no leading slash
+        private final String resourcePath; // path relative to classpath root, no leading slash
 
         ClasspathLabelLocator(String path) {
             this.originalPath = path;
-            String lower = path.toLowerCase(Locale.ENGLISH);
             String raw;
-            if (lower.startsWith(CLASSPATH_PREFIX)) {
+            if (path.toLowerCase(Locale.ENGLISH).startsWith(CLASSPATH_PREFIX)) {
                 raw = path.substring(CLASSPATH_PREFIX.length());
             } else {
                 raw = path.substring(TILDE_PREFIX.length());
@@ -129,12 +134,12 @@ public class LabelLocationConfig {
         public URL locate(Locale locale) throws IOException {
             if (locale != null) {
                 int dot = resourcePath.lastIndexOf('.');
-                String prefix = dot >= 0 ? resourcePath.substring(0, dot) : resourcePath;
-                String suffix = dot >= 0 ? resourcePath.substring(dot) : "";
+                String base = dot >= 0 ? resourcePath.substring(0, dot) : resourcePath;
+                String ext  = dot >= 0 ? resourcePath.substring(dot) : "";
 
                 String localeTag = locale.toString();
                 while (!localeTag.isEmpty()) {
-                    URL url = load(prefix + "_" + localeTag + suffix);
+                    URL url = load(base + "_" + localeTag + ext);
                     if (url != null) return url;
                     int last = localeTag.lastIndexOf('_');
                     if (last < 0) break;

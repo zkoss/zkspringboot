@@ -27,4 +27,9 @@ public class DemoApplication {
 		return "resources";
 	}
 
+	@GetMapping("/label-location")
+	public String labelLocationDemo() {
+		return "label-location";
+	}
+
 }

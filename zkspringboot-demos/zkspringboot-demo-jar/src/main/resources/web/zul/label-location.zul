@@ -1,0 +1,56 @@
+<?page title="Label Location Demo"?>
+<zk>
+	<window title="label-location Demo" border="normal" width="700px">
+		<vlayout>
+			<label value="Testing &lt;label-location&gt; configurations in zk.xml system-config"/>
+			<separator/>
+
+			<label value="--- /WEB-INF/moduleA.properties ---" style="font-weight:bold"/>
+			<label value="WAR-style path resolved via ServletContext.getResource(). In JAR packaging, place the file under META-INF/resources/WEB-INF/ so the servlet container can serve it."/>
+			<hlayout>
+				<label value="moduleA.greeting: "/>
+				<label id="modulaAGreeting" value="${labels.moduleA.greeting}" style="font-weight:bold"/>
+			</hlayout>
+			<hlayout>
+				<label value="moduleA.description: "/>
+				<label id="moduleADescription" value="${labels.moduleA.description}" style="color:gray"/>
+			</hlayout>
+			<separator/>
+
+			<label value="--- classpath:/metainfo/zk/moduleB.properties ---" style="font-weight:bold"/>
+			<label value="classpath: is a Spring Boot concept. ZK's built-in ServletLabelLocator cannot resolve it — returns null on Tomcat, throws MalformedURLException on Jetty EE10. See LabelLocationConfig.java for the workaround."/>
+			<hlayout>
+				<label value="moduleB.greeting: "/>
+				<label id="moduleBGreeting" value="${labels.moduleB.greeting}" style="font-weight:bold"/>
+			</hlayout>
+			<hlayout>
+				<label value="moduleB.description: "/>
+				<label id="moduleBDescription" value="${labels.moduleB.description}" style="color:gray"/>
+			</hlayout>
+			<separator/>
+
+			<label value="--- ~./metainfo/zk/moduleC.properties ---" style="font-weight:bold"/>
+			<label value="ZK's own classpath-resource prefix (~./). Same failure mode as classpath: — not a valid servlet context path."/>
+			<hlayout>
+				<label value="moduleC.greeting: "/>
+				<label id="moduleCGreeting" value="${labels.moduleC.greeting}" style="font-weight:bold"/>
+			</hlayout>
+			<hlayout>
+				<label value="moduleC.description: "/>
+				<label id="moduleCDescription" value="${labels.moduleC.description}" style="color:gray"/>
+			</hlayout>
+			<separator/>
+
+			<label value="--- /moduleD.properties (Spring Boot static content) ---" style="font-weight:bold"/>
+			<label value="Spring Boot serves src/main/resources/static/ via Spring MVC, not via ServletContext — so ServletContext.getResource('/moduleD.properties') returns null and labels are empty."/>
+			<hlayout>
+				<label value="moduleD.greeting: "/>
+				<label id="moduleDGreeting" value="${labels.moduleD.greeting}" style="font-weight:bold"/>
+			</hlayout>
+			<hlayout>
+				<label value="moduleD.description: "/>
+				<label id="moduleDDescription" value="${labels.moduleD.description}" style="color:gray"/>
+			</hlayout>
+		</vlayout>
+	</window>
+</zk>

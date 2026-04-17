@@ -2,6 +2,27 @@
 <zk>
 	<config-name>zkspringboot-demo</config-name>
 
+	<system-config>
+		<!-- WAR-style path: resolved via ServletContext.getResource().
+		     Works in WAR packaging; in JAR packaging this silently returns empty labels
+		     because /WEB-INF/ does not exist inside a fat JAR. -->
+		<label-location>/WEB-INF/moduleA.properties</label-location>
+
+		<!-- classpath: path: also resolved via ServletContext.getResource() by ZK's built-in
+		     ServletLabelLocator. Fails in both JAR and WAR Spring Boot packaging:
+		     Tomcat returns null, Jetty EE10 throws MalformedURLException. -->
+		<label-location>classpath:/metainfo/zk/moduleB.properties</label-location>
+
+		<!-- ~./ path: ZK's own classpath-resource prefix, resolved via ServletContext.getResource().
+		     Same failure mode as classpath: — not a valid servlet context path. -->
+		<label-location>~./metainfo/zk/moduleC.properties</label-location>
+
+		<!-- Spring Boot static content path: resolved via ServletContext.getResource().
+		     Spring Boot serves src/main/resources/static/ files via Spring MVC's ResourceHttpRequestHandler,
+		     not through the servlet context — so ServletContext.getResource("/moduleD.properties") returns null. -->
+		<label-location>/moduleD.properties</label-location>
+	</system-config>
+
 	<!--enable websocket support in ZK 8.5.1 (ZK-3799)  -->
 <!--	<listener>-->
 <!--		<listener-class>org.zkoss.zkmax.au.websocket.WebSocketWebAppInit</listener-class>-->

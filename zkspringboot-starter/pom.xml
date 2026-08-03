@@ -93,4 +93,27 @@
 			<version>2.21</version>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<!-- SBOM (CycloneDX) for CRA compliance: standalone deliverable -> makeBom -->
+			<plugin>
+				<groupId>org.cyclonedx</groupId>
+				<artifactId>cyclonedx-maven-plugin</artifactId>
+				<version>2.9.2</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals><goal>makeBom</goal></goals>
+					</execution>
+				</executions>
+				<configuration>
+					<outputFormat>json</outputFormat>
+					<schemaVersion>1.6</schemaVersion>
+					<projectType>library</projectType>
+					<includeTestScope>false</includeTestScope>
+					<outputName>${project.artifactId}-sbom-cyclonedx</outputName>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
